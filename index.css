@@ -1,0 +1,1465 @@
+/* ***************************************************************************************************************
+Projecs "ax" - indicates Demo Model       (06/25/2020-07/20/2020)
+Project "bx" - indicates FedEx Model      (07/20/2020-07/27/2020)
+Project "cx" - indicates ShipEx Model     (07/27/2020-08/01/2020)
+Project "dx" - indicates JobSys Model     (08/01/2020-08/20/2020)
+Project "gx" - indicates JobLinks Model   (08/20/2020-09/11/2020)
+Project "hx" - indicates JobLinks Rewrite (09/11/2020-PRESENT)
+******************************************************************************************************************
+what are the names of these types? NOPREFIX=TAG, DOTPREFIX=CLASS, #PREFIX=ID
+   Element                                Description                                      Verified
+   -------------------------------------- ------------------------------------------------ --------
+   hxFlexBorder, .hxFlexBorder            Invisible Flex Border around a Section (Red)       100320
+   hxSection, .hxSection                  -                                                  -
+   -------------------------------------- ------------------------------------------------ --------
+   hxLogo, .hxLogo                        Main Heading Logo (no longer used)                 100320
+   hxCardBox, .hxCardBox                  Outer Flex section to contain flex "Cards".        100320
+   hxCardPage, hxCardPage                 Individual Card pages (containers).                100320
+   hxCardWide, .hxCardWide                -                                                  100320
+   hxClearCardPage, .hxClearCardPage      Clear Card for instructions (optional).            091220
+   hxCardTitle,.hxCardTitle               Title of Card (same as Heading)                    100320
+   hxCardHeading,.hxCardHeading           Heading of Card (same as Title)                    100320
+   hxCardText, .hxCardText                Text Details within Card.                          100320
+   hxGreenCardButton, .hxGreenCardButton  Green Button at top of Card                        100320
+   hxRedCardButton, .hxRedCardButton      -                                                  100320
+   hxGrayCardButton, .hxGrayCardButton    -                                                  -
+   hxCopyrightText, .hxCopyrightText      Copyright Text on Footer                           100320
+   .hxProgressBar                         Progress Bar (used for Paging Lists)               100320
+   .hxNotes                               Notes Area (used for SHOW/HIDE Comments            080720
+   -------------------------------------- ------------------------------------------------ --------
+   .visible                               Global - Element Class (show, display: block)      100320
+   .hidden                                Global - Element Class (hide, display: none)       100320
+   .block                                 Global - Element Class (display: block)            -
+   .inline                                Global - Element Class (display: inline)           -
+   .inset                                 Global - Element Class (insets text)               100920
+   keyword, .keyword                      Highlights inline "keywords" or "special".         100920
+   -------------------------------------- ------------------------------------------------ --------
+   .hxQuotation                           Only for //QOD//Portfolio// Quotation of the Day   080720
+   .hxWaveText                            Testing                                            080720
+   .hxRainbowText                         Testing                                            080720
+   .hxCharcoalText                        Testing                                            080720
+   .hxChalkText                           Testing                                            080720
+   .hxPagingList                          2-color Paging List                                081520
+   .hxMenuButtonNormal                    Menu Button, Normal                                080720
+   .hxMenuButtonDisabled                  Menu Button, Disabled                              080720
+   .hxMenuButtonSpecial                   Menu Button, Special                               080720
+   .hxShowHideInfo                        Show/Hide Button                                   080720
+   -------------------------------------- ------------------------------------------------ --------
+   .hxHtmlContainer                       White             -
+   .hxBodyContainer                       White             -
+   .hxPageContainer                       #B0B0B0           -
+   .hxMenuContainer                       #45587A           0.10in
+   .hxSectionContainer                    #dddddd           0.35in
+   LeftMenu                               Global - Fake Class/Flag for Hide_Menu_Sections Function
+   -------------------------------------- ------------------------------------------------ --------
+
+******************************************************************************************************************
+*/
+
+//New// New ***************************************
+// overflow: hidden;
+// overflow: "visible|hidden|scroll|auto|initial|inherit"
+// width: calc(100% - 100px);
+// text-align: left|right|center|justify|inherit
+//
+// Special Symbols: h2:after {content: ' \27A4';}
+//
+//   Ξ   &#x039E   GREEK CAPITAL LETTER XI       (hamburger menu)
+//   ‖   &#x2016   DOUBLE VERTICAL LINE          (||)
+//   ⁝   &#x205D   TRICOLON                      (3 vertical dots menu)
+//   ⁞   &#x205E   VERTICAL FOUR DOTS            (4 vertical dots menu)
+//   ∥   &#x2225   PARALLEL TO                   (parallel symbol)
+//   ≡   &#x2261   IDENTICAL TO                  (3-hamburger menu)
+//   ≣   &#x2263   STRICTLY EQUIVALENT TO        (4-hamburger menu)
+//   ⋮   &#x22EE   VERTICAL ELLIPSIS             (3-vert hamburger)
+//   ⋯   &#x22EF   MIDLINE HORIZONTAL ELLIPSIS   (3-hor hamburger)
+//   ☰   &#x2630   TRIGRAM FOR HEAVEN            (3-ver hamburger)
+//   ⚌   &#x268C   DIGRAM FOR GREATER YANG       (3-ver hamburger)
+//
+
+/* *** SHORTCUTS ************************************************************************************************* */
+.visible          {display: block}
+.hidden, hidden   {display: none}
+.inline           {display: inline}
+.block            {display: block}
+.runin            {display: runin}
+.hxBlack          {color: Black}
+.hxWhite          {color: White}
+.inset {
+   box-shadow: 0in 0in       0.01in Black,
+               0.015in 0.015in 0.04in Black inset;
+   }           
+
+keyword, .keyword {
+   font-weight:boldest;
+   text-decoration: none;
+   color: DarkBlue;
+   font-weight: bolder;
+   font-style: italic;
+   text-decoration-style: none;
+   margin: 0in; padding: 0in;
+   border: none;
+   background-color: transparent; // rgb(64,64,64);
+   }
+
+/* *** GLOBAL DEFAULTS ******************************************************************************************* */
+html {margin:0in; padding:0in; font-family: sans-serif;
+   border: none; // 0.04in solid Blue; //test//prod
+   background-image:url("./Images/BG_Black_Boxes.bmp");
+   }
+body {
+   margin: 0in;   // margin: 0.025in; 
+   padding: 0in;  // padding: 0.025in;
+   background-color: #B0B0B0; // #0000ff;
+   border: none; // 0.04in solid Orange; //test//prod
+   background-image:url("./Images/BG_Black_Boxes.bmp");
+   // box-shadow: -3px -3px 3px rgb(105, 105, 105) inset; 2px 2px 2px rgba(15, 11, 15, 0.856), 2px 2px 2px white inset, 
+   // transition: 0.5s;
+   }
+
+hr {
+   background-color: #788CAD; 
+   height: 0.006in;
+   border: 0.025in solid #304060;
+   border-radius:0.025in;
+   margin: 0.07in;
+   box-shadow: 0.025in 0.025in 0.050in rgba(15, 11, 15, 0.8),
+               0in 0in 3.025in rgba(15, 11, 15, 0.8);
+   // 3px 3px 3px 10px rgba(15, 11, 15, 0.7), 0px 0px 2px Black;
+   }
+      
+hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
+   display: flex; flex-align-text:left; flex-direction:row; flex-wrap:wrap; flex-flow:column wrap; align-items:stretch; // flex:20%; 
+   align-content: flex-start;
+   border: 0px; margin: 0px; padding: 0px;               // PROD
+   // border: 2px solid Red; margin: 10px; padding: 10px;      // TEST
+   // width:auto; height: auto;
+   }
+
+/* *** //Portfolio// ************************************************************************************************ */
+.hxQuotation {
+   background-image:linear-gradient(to bottom, rgba(255,255,255,0.10) 0%, rgba(64,64,64,0.40) 100%);
+   font-size:0.40in; color: Blue;
+   // font: 100 0.40in/1.3 'Great Vibes', Helvetica, sans-serif;
+   font: 100 0.40in/1.3 'Sofia', Helvetica, sans-serif;
+   text-align:center;
+   margin: 0.08in;
+   padding: 0.50in;
+   border: none; 
+   display: run-in;
+   text-shadow: 0in    0in    0.12in rgba(0, 0, 0, 0.50),
+                0.02in 0.02in 0.04in rgba(0, 0, 0, 0.95);
+   }
+.hxQuotation::first-letter {
+   font-weight: bold;
+   initial-letter: 5;
+   font-size: 0.55in; 
+   color: White;
+   text-shadow: 0.06in 0.06in 0.16in Black,
+                0.06in 0.06in 0.12in rgba(0, 0, 0, 0.99);
+   box-shadow: 0.06in 0.06in 0.16in Black,
+               0.06in 0.06in 0.12in rgba(0, 0, 0, 0.99);
+   border: 0.02in solid Black;
+   background-color: DodgerBlue; // DarkRed;
+   padding-left: 0.2in; padding-right: 0.2in; padding-top: 0.05in; padding-bottom: 0.05in;
+   }
+
+/* *** //FUTURE// ************************************************************************************************ */
+
+/* *** TESTING *************************************************************************************************** */
+.hxWaveText {
+   color: black; margin-left: 25px; 
+   background-color: transparent;
+   margin 0.8in;;
+   font-size:4em;
+   font-variant: fantasy;
+   text-shadow: 
+      +2px +0px 1px white     , -2px +0px 1px white  , +0px +2px 1px white  , +0px -2px 1px white ,   
+         +2px +2px 1px white  , -2px +2px 1px white  , -2px -2px 1px white  , +2px -2px 1px white ,
+      +4px +0px 1px black     , -4px +0px 1px black  , +0px +4px 1px black  , +0px -4px 1px black ,   
+         +4px +4px 1px black  , -4px +4px 1px black  , -4px -4px 1px black  , +4px -4px 1px black ,
+      +6px +0px 1px white     , -6px +0px 1px white  , +0px +6px 1px white  , +0px -6px 1px white ,   
+         +6px +6px 1px white  , -6px +6px 1px white  , -6px -6px 1px white  , +6px -6px 1px white ,
+      +8px +0px 1px black     , -8px +0px 1px black  , +0px +8px 1px black  , +0px -8px 1px black ,   
+         +8px +8px 1px black  , -8px +8px 1px black  , -8px -8px 1px black  , +8px -8px 1px black ,
+      +10px +0px 1px white    , -10px +0px 1px white , +0px +10px 1px white , +0px -10px 1px white ,   
+         +10px +10px 1px white, -10px +10px 1px white, -10px -10px 1px white, +10px -10px 1px white ,
+      +12px +0px 1px black    , -12px +0px 1px black , +0px +12px 1px black , +0px -12px 1px black ,   
+         +12px +12px 1px black, -12px +12px 1px black, -12px -12px 1px black, +12px -12px 1px black ,
+      +14px +0px 1px white    , -14px +0px 1px white , +0px +14px 1px white , +0px -14px 1px white ,   
+         +14px +14px 1px white, -14px +14px 1px white, -14px -14px 1px white, +14px -14px 1px white ;
+   }
+
+.hxRainbowText {
+   margin 0.8in;;
+   color: black; margin-left: 25px; 
+   background-color: transparent;
+   font-size:4em;
+   text-shadow: 
+      +2px +0px 1px red        , -2px +0px 1px red     , +0px +2px 1px red     , +0px -2px 1px red ,   
+         +2px +2px 1px red     , -2px +2px 1px red     , -2px -2px 1px red     , +2px -2px 1px red ,
+      +4px +0px 1px orange     , -4px +0px 1px orange  , +0px +4px 1px orange  , +0px -4px 1px orange ,   
+         +4px +4px 1px orange  , -4px +4px 1px orange  , -4px -4px 1px orange  , +4px -4px 1px orange ,
+      +6px +0px 1px yellow     , -6px +0px 1px yellow  , +0px +6px 1px yellow  , +0px -6px 1px yellow ,   
+         +6px +6px 1px yellow  , -6px +6px 1px yellow  , -6px -6px 1px yellow  , +6px -6px 1px yellow ,
+      +8px +0px 1px green      , -8px +0px 1px green   , +0px +8px 1px green   , +0px -8px 1px green ,   
+         +8px +8px 1px green   , -8px +8px 1px green   , -8px -8px 1px green   , +8px -8px 1px green ,
+      +10px +0px 1px blue      , -10px +0px 1px blue   , +0px +10px 1px blue   , +0px -10px 1px blue ,   
+         +10px +10px 1px blue  , -10px +10px 1px blue  , -10px -10px 1px blue  , +10px -10px 1px blue ,
+      +12px +0px 1px indigo    , -12px +0px 1px indigo , +0px +12px 1px indigo , +0px -12px 1px indigo ,   
+         +12px +12px 1px indigo, -12px +12px 1px indigo, -12px -12px 1px indigo, +12px -12px 1px indigo ,
+      +14px +0px 1px violet    , -14px +0px 1px violet , +0px +14px 1px violet , +0px -14px 1px violet ,   
+         +14px +14px 1px violet, -14px +14px 1px violet, -14px -14px 1px violet, +14px -14px 1px violet ;
+   }
+
+.hxCharcoalText {
+   margin 0.8in;;
+   color: transparent; margin-left: 25px; 
+   background-color: transparent;
+   font-size:4em;
+   text-shadow:
+      0px 0px 4px rgba(5,5,5,1.0),
+      0px 0px 8px rgba(5,5,5,0.8),
+      0px 0px 32px rgba(5,5,5,0.8);
+   }
+
+.hxChalkText {
+   margin 0.8in;;
+   color: transparent; margin-left: 25px; 
+   background-color: transparent;
+   font-size:4em;
+   text-shadow:
+      0px 0px 4px rgba(255, 255, 255, 0.7),
+      0px 0px 8px rgba(255, 255, 255, 0.7),
+      0px 0px 32px rgba(255, 255, 255, 0.7);
+   }
+
+/* *************************************************************************************************************** */
+/* *** ROLODEX SETTINGS ****************************************************************************************** */
+/* *************************************************************************************************************** */
+
+/* *** Favorites ************************************************************************************************* */
+.list_Favorites { // List-Style Line (White)
+   background: transparent; color: Black;
+   text-decoration: underline;
+   font-size:0.02in;
+   border: 1px solid Black
+   margin: 0px;
+   // width:auto; // 12em;
+   height: auto;
+   padding: 0in;
+   overflow: scroll;
+   }
+
+/* *** NAVIGATION MENU ******************************************************************************************* */
+/* Source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar_hor */
+.mobile-container {
+   max-width: 480px;
+   margin: auto;
+   background-color: #555;
+   height: 500px;
+   color: white;
+   border-radius:10px;
+   // transition: 0.1s;
+   }
+
+// *** "gx" Revamp //BODY //PAGE //MENU **********************************************************************
+.hxBodyContainer {
+   background-color: #B0B0B0; // #909090; color: Black;
+   border: 0in solid Red; 
+   // border: 0.02in solid rgb(255, 255, 255, 0.15);
+   font-size: 0.10in; color: White;
+   margin:0in; padding: 0in;
+   // overflow: scroll;
+   // transition: 0.2s;
+   }
+
+.hxMenuContainer {
+   // display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:left; align-items:flex-start; // stretch;
+   background-color: #45587A;
+   border: 0in; // 0.04in solid Purple;
+   font-size: 0.25in; color: White;
+   height: auto; height: auto;
+   // border-radius:0.07in;
+   box-shadow: 0in +6px 0.06in rgba(15, 11, 15, 0.7), 
+               0in -6px 0.06in rgba(15, 11, 15, 0.7), 
+               0in  0in 0.02in Black;
+   margin: 0in; padding: 0in;
+   background-image:linear-gradient(to bottom, #55688A 30%, #35383A 95%);
+   // transition: 0.2s;
+   }
+
+.hxTransparentButton {
+   color: Black; // rgba(159,159,64,0.95);
+   font-size:0.20in; font-weight: bold; font-variant:normal;
+   // background-color: transparent;
+   background-color: rgba(255,255,255,0.30);
+   border:none; // 0.02in solid rgb(255, 255, 255, 0.15); // border-left: 0.02in solid rgb(255, 255, 255, 0.15);
+   text-align:center;
+   margin:0in; 
+   padding: 0.04in; // 0.1in;
+   min-width: 1.6in;
+   max-width: 2.0in;
+   // transition: 0.3s;
+   box-shadow: +0.02in +0.02in 0.02in rgba(192, 192, 192, 0.5) inset,
+               -0.02in -0.02in 0.02in rgba(8,8,8, 0.8) inset;
+   transition: 0.5s ease-in;
+   }
+.hxTransparentButton:hover {
+   background-color: rgba(255,255,255,0.70);
+   color: Yellow; // transparent;
+   box-shadow: 0in 0.08in 0.05in rgba(0,0,0,0.50),
+               0.08in 0in 0.05in rgba(0,0,0,0.50);
+   text-shadow:0in 0.00in 0.05in Black, 0in 0.00in 0.15in Black,
+               0in 0.00in 0.05in rgba(0,0,0,0.60),
+               0in 0.10in 0.06in rgba(0,0,0,0.60),
+               0in 0.15in 0.07in rgba(0,0,0,0.60),
+               0in 0.20in 0.09in rgba(0,0,0,0.60),
+               0in 0.25in 0.11in rgba(0,0,0,0.60),
+               0in 0.30in 0.13in rgba(0,0,0,0.60),
+               0in 0.35in 0.16in rgba(0,0,0,0.60),
+               0in 0.40in 0.19in rgba(0,0,0,0.60),
+               0in 0.45in 0.21in rgba(0,0,0,0.60),
+               0in 0.50in 0.25in rgba(0,0,0,0.60),
+               0in 0.60in 0.29in rgba(0,0,0,0.60),
+               0in 0.70in 0.33in rgba(0,0,0,0.60),
+               0in 0.80in 0.38in rgba(0,0,0,0.60),
+               0in 0.90in 0.43in rgba(0,0,0,0.60),
+               0in 1.00in 0.48in rgba(0,0,0,0.60),
+               0in 1.10in 0.54in rgba(0,0,0,0.60),
+               0in 1.20in 0.60in rgba(0,0,0,0.60),
+               0in 1.30in 0.66in rgba(0,0,0,0.60);
+   transition: 0.5s ease-in;
+   }
+
+.hxLeftMenu {
+   color: Black; // rgba(159,159,64,0.95);
+   width: 2in;
+   height: 0.35in;
+   width:1.5in;   
+   font-size:0.20in; font-weight: bold; font-variant:normal;
+   margin: 0in; margin-bottom: 0.02in; margin-right: 0.4in;
+   text-align:center;
+   // background-color: transparent;
+   background-color: rgba(255,255,255,0.15);
+   padding: 0in;
+   transition: 0.5s ease-in;
+   }
+.hxLeftMenu:hover {
+   color: Yellow; // transparent; // Yellow;
+   text-shadow: 0in 0in 0.10in rgba(193,193,0,0.90),
+                0in 0in 0.20in rgba(193,193,0,0.85),
+                0in 0in 0.30in rgba(193,193,0,0.80),
+                0in 0in 0.40in rgba(193,193,0,0.75),
+                0in 0in 0.70in rgba(193,193,0,0.70),
+                0.00in 0.07in 0.04in rgba(0,0,0,1.00),
+                0.00in 0.14in 0.05in rgba(0,0,0,0.95),
+                0.00in 0.21in 0.06in rgba(0,0,0,0.90),
+                0.00in 0.28in 0.07in rgba(0,0,0,0.85),
+                0.00in 0.35in 0.08in rgba(0,0,0,0.80),
+                0.00in 0.42in 0.09in rgba(0,0,0,0.75),
+                0.00in 0.49in 0.10in rgba(0,0,0,0.70),
+                0.00in 0.52in 0.11in rgba(0,0,0,0.65),
+                0.00in 0.55in 0.12in rgba(0,0,0,0.60),
+                0.00in 0.58in 0.13in rgba(0,0,0,0.55),
+                0.00in 0.61in 0.14in rgba(0,0,0,0.50),
+                0.00in 0.64in 0.15in rgba(0,0,0,0.45),
+                0.00in 0.67in 0.16in rgba(0,0,0,0.40),
+                0.00in 0.70in 0.17in rgba(0,0,0,0.35);
+   transition: 0.5s ease-in;
+   }
+
+.hxMenuButtonNormal {
+   background-image:linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(32,32,32,0.1), rgba(32,32,32,0.4), rgba(0,0,0,0.7));
+   background-color: rgba(255,255,255,0.25);
+   // background-color: Yellow; // #36486B;
+   // background-image: linear-gradient(to bottom, #66789B 30%, #16284B 95%);
+   // background-image:url("./Images/Blue_Noise.bmp");
+   font-size: 0.18in;
+   font-weight: bold;
+   // height: 0.5in;
+   color: Black;
+   margin-top: 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
+   // margin-top: 0in; // 0.03in;
+   padding: 0.10in;
+   border-radius:0.07in;
+   border: none;
+   height: 0.45in; // auto
+   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+   // transition: 0.1s;
+   box-shadow: +0.02in +0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
+               -0.02in -0.02in 0.02in rgba(8,8,8, 0.9) inset;
+/*
+   // border:none; // border-left: 0.02in solid rgb(255, 255, 255, 0.15);
+*/
+   }
+.hxMenuButtonNormal:hover {
+   // background-color: #90A3C0; 
+   background-color: rgba(255,255,255,0.10);
+   color: DarkBlue;
+   box-shadow: -0.02in -0.02in 0.01in rgba(192, 192, 192, 0.6) inset,
+               +0.02in +0.02in 0.01in rgba(8,8,8, 0.6) inset;
+   // transition: 0.1s;
+   }
+.hxMenuButtonNormal:focus 
+   {
+   // background-color: #102344; 
+   outline: none;
+   background-color: rgba(255,255,255,0.02);
+   // transition: 0.1s;
+   }
+
+.hxMenuButtonSpecial {
+   font-size: 0.20in;
+   background-color: #788CAD;
+   border:none; border-left: 0.02in solid rgb(255, 255, 255, 0.15);
+   color: Black;
+   margin-top: 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
+   padding: 0.10in;
+   height: auto; 
+   border-radius:0.07in;
+   box-shadow: +0.02in +0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
+               -0.02in -0.02in 0.02in rgba(8,8,8, 0.9) inset;
+   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+   background-image:linear-gradient(to bottom, #98ACCD 30%, #384C6D 95%);
+   // transition: 0.1s;
+   }
+.hxMenuButtonSpecial:hover {
+   box-shadow: -0.02in -0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
+               +0.02in +0.02in 0.02in rgba(8,8,8, 0.9) inset;
+   color: DarkBlue;
+   background-color: #90A3C0; 
+   // transition: 0.1s;
+   }
+.hxMenuButtonSpecial:focus {
+   background-color: #102344; outline: none; transition: 0.1s;
+   // transition: 0.1s;
+   }
+
+.hxMenuButtonDisabled {
+   font-size: 0.20in;
+   background-color: #102345;
+   border:none; border-left: 0.02in solid rgb(255, 255, 255, 0.15);
+   color: Black;
+   margin-top: 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
+   padding: 0.10in;
+   border-radius:0.07in;
+   height: auto; 
+   box-shadow: -0.02in -0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
+               +0.02in +0.02in 0.02in rgba(8,8,8, 0.9) inset;
+   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+   // transition: 0.1s;
+   }
+.hxMenuButtonSpecial:hover {}
+.hxMenuButtonSpecial:focus {}
+
+/* ****************************************************************************************** */
+.hxShowHideInfo { // Button to "Show Info"
+   color: White;
+   // transition: 0s;
+/*
+   width:auto; height: auto;
+   text-shadow: 2vw 2vw 4vw rgba(0, 0, 0, 0.7);
+   font-size: 0.20in;
+   display: inline;
+   border: 0.025vw solid White;
+   border-radius:0.6vw; 
+   // transition: 0.1s;
+   background-color: Blue;
+   padding-left: 1vw; padding-right:1vw;
+   margin-left: 2vw; margin-right:2vw;
+   color: White;
+   box-shadow: -0.02in -0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
+               +0.02in +0.02in 0.10in rgba(8,8,8, 0.9);
+*/
+   // how to place icon at end of line?
+   }
+.hxShowHideInfo:hover {
+   color: Yellow;
+   // transition: 0s;
+/*
+   box-shadow: 0px 0px 16px Black;
+*/ 
+
+   }
+.hxShowHideInfo:focus {
+   // transition: 0s;
+/*
+   content: attr(title); //dynamic//calculated//research this//
+   padding: 4px 8px;
+   position: absolute;
+   left: 0; 
+   top: 100%;
+   white-space: nowrap; 
+   border-radius: 5px;  
+   box-shadow: 0px 0px 4px #222;  
+*/
+   }
+
+hxSection, .hxSection { 
+   color: Black;
+   border: 0.02in solid Orange; // #788CAD;
+/*
+   margin: 0.5in; 
+   margin-top: 0.2in; margin-bottom:0.2in;
+   padding: 0.25in;
+   color: White; // #45587A;
+   border-radius:0.12in;
+   font-size: 0.25in;
+   // background-color: #8888ff;
+   box-shadow: 
+      0in 0in 0.10in Black inset,
+      0in 0in 0.02in Black,
+      0in 0in 0.2in #405375 inset,
+      0in 0in 0.5in #405375 inset,
+      0in 0in 2.0in #405375 inset,
+      0in 0in 3.0in White inset,
+      0in 0in 5.0in White inset;
+   // transition: 0.2s;
+*/
+   }
+
+h1 {
+   font-size: 0.30in;
+   margin: 0in;
+   padding: 0in;
+   background-color: transparent;
+   font-weight: bolder;
+   border: none;
+   color: #203355;
+   }
+
+h2 {
+   font-size: 0.25in;
+   margin: 0in; margin-left: 0.25in;
+   padding: 0in;
+   background-color: transparent;
+   font-weight: bold;
+   border: none;
+   color: #203355;
+   }
+
+h3 {
+   font-size: 0.20in;
+   margin: 0in; margin-left: 0.50in;
+   padding: 0in;
+   background-color: transparent;
+   font-weight: normal;
+   border: none;
+   color: Black;
+   }
+
+hxSectionHeadingText, .hxSectionHeadingText {
+   font-size: 0.40in;
+   margin: 0in;
+   padding: 0in;
+   background-color: Transparent;
+   font-weight: bolder;
+   border: none; 
+   color: Red; // #203355;
+   }
+
+.hxSectionSmallText {
+   color: Black;
+   margin: 0in;
+   padding: 0in; padding-left: 0.25in;
+   // display: inline;
+   text-decoration: none;
+   font-weight: normal;
+   background-color: Transparent;
+   font-size: 0.20in;
+   // text-shadow: 1px 1px 1px rgba(15, 11, 15, 0.7);
+   // box-shadow: 6px 6px 10px rgba(15, 11, 15, 0.7), 0px 0px 2px Black;
+   // transition: 0.1s;
+   }
+
+.hx3D { 
+   // Use to give 3D button effect to any element
+   background-image:linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(32,32,32,0.1), rgba(32,32,32,0.4), rgba(0,0,0,0.7));
+   box-shadow: 0.02in 0.02in 0.06in Black,
+               6px 6px 10px rgba(15, 11, 15, 0.7), 0px 0px 2px Black,
+               0in 0in 0.10in 0.02in rgba(169,110,054,0.90) inset;
+   // transition: 0.1s;
+   }
+
+.hx3DInset { 
+   // Use to give 3D inset effect to any element
+   background-image:linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(32,32,32,0.1), rgba(32,32,32,0.4), rgba(0,0,0,0.7));
+   box-shadow: +0.02in +0.02in 0.04in rgba(192,192,192,0.8) inset,
+               -0.02in -0.02in 0.04in rgba(64,64,64,0.2) inset;
+   // transition: 0.1s;
+   }
+
+.hxButtonSmall {
+   background-color: rgb(234,226,209); // #FEFE88;
+   width: 0.50in; height: 0.45in;
+   font-size: 0.20in;
+   color: Black;
+   font-weight: bolder;
+   border: 0.02in solid White;
+   border-radius:0.05in; 
+   margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
+   padding: 0.1in;
+   // transition: 0.1s;
+   }
+
+.hxButtonMedium {
+ background-color: rgb(234,226,209); // #FEFE88;
+   width: 1.8in; height: auto;
+   font-size: 0.20in;
+   font-weight: bolder;
+   color: Black;
+   border: 0.02in solid White;
+   margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
+   padding: 0.1in;
+   border-radius:0.05in; 
+   // transition: 0.1s;
+   }
+
+.hxButtonLarge {
+   background-color: rgb(234,226,209); // #FEFE88;
+   width: 3.2in; height: auto;
+   font-size: 0.20in;
+   font-weight: bolder;
+   color: Black;
+   border: 0.02in solid White;
+   margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
+   padding: 0.1in;
+   border-radius:0.05in; 
+   // transition: 0.1s;
+   }
+
+.hxButtonAuto {
+   background-color: rgb(234,226,209); // #FEFE88;
+   width: auto; height: auto;
+   font-size: 0.20in;
+   font-weight: bolder;
+   color: Black;
+   border: 0.02in solid White;
+   margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
+   padding: 0.1in;
+   border-radius:0.05in; 
+   // transition: 0.1s;
+   }
+
+.hxButtonNav {
+   background-color: transparent; // rgba(255,255,255,0.90)
+   font-size: 0.15in;
+   font-weight: bolder;
+   width: 0.35in;
+   color: White;
+   border: 0.02in solid White;
+   // border-radius:0.05in; 
+   text-align: center;
+   margin: 0in; margin-left: 0in; margin-top: 0.025in; margin-bottom: 0.035in; // margin-bottom: 0.025in;
+   padding: 0in; padding-top: 0.05in; padding-bottom: 0.05in;
+   // transition: 0.1s;
+   }
+
+.hxContainer3 {
+   // Left over from axContainer3, but it is still being used
+   display: flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; align-items:stretch;
+   background-color: rgba(255, 255, 255, 0.25);
+   border: 0.4vw solid rgba(255, 255, 255, 0.25);
+   border-radius:1.0vw; 
+   margin: 0.5em; padding: 0.5em; 
+   box-shadow: 4px 4px 4px rgba(15, 11, 15, 0.7), 0px 0px 4px Black;
+   // transition: 0.1s;
+   }
+
+/* *** Progress Bar, Notes Container ***************************************************************************** */
+.hxProgressBar hxProgressBar {
+   display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; align-items:stretch;
+   // background-color: #45587A;
+   font-size: 0.12in; color: White;
+   margin: 0in; // margin-bottom: 0.12in;
+   padding: 0in; // 0.06in; padding-left: 0.12in; 
+   height: auto; height: auto;
+   border: 0.02in solid Orange;
+   border-radius:0.05in;
+   box-shadow: 0in +0.02in 0.06in rgba(15, 11, 15, 0.8), 
+               0in  0in 0.02in Black;
+   // transition: 0.2s;
+   }
+
+.hxNotes, hxNotes { // Container for Note-Type Text
+   display: flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; // align-items:stretch;
+   background-color: #FEFE88;
+   font-size: 0.15in;
+   // display: block;
+   // border: 0.02in solid rgb(169,110,054);
+   border: thin solid rgba(0,0,0,0.50);
+   border-radius:0.075in;
+   margin: 0in; margin-top: 0.04in; // 0.02in; padding: 0.02in;
+   padding: 0.08in;
+   color: Black;
+   // max-height: auto;
+   overflow: hidden; // auto; // hidden; // scroll; // "visible|hidden|scroll|auto|initial|inherit"
+   overflowX: hidden;
+   overflowY: hidden;
+   // transition: 0.1s;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   text-shadow: none;
+   
+   margin: 0.02in; 
+   // background-color: LightBlue;
+   }
+
+.hxCard { // Container for White Card
+   display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; // align-items:stretch; // flex:20%; 
+   background-color: White;
+   border: 0.02in solid rgb(169,110,054);
+   font-size: 0.20in;
+   border-radius:0.075in;
+   margin: 0.9in; padding: 0.9in; 
+   color: Black;
+   width: 2in; height: 2in;
+   overflow: hidden; // auto; // hidden; // scroll; // "visible|hidden|scroll|auto|initial|inherit"
+   overflowX: hidden;
+   overflowY: hidden;
+   }
+
+/* *** App/Companies List ************************************************************************************* */
+.hxPagingList {
+   display: flex; align-items: stretch;
+   background-color: rgba(255, 255, 255, 0.30);
+   font-size: 0.15in;
+   font-weight: bold;
+   color: Black;
+   border: 0.02in solid LightBlue; 
+   border-top: 0.01in solid LightBlue; 
+   border-bottom: 0.01in solid LightBlue; 
+   border-left: 0.1in solid White;
+   margin: 0in;
+   padding: 0in; padding-left: 0.10in;
+   text-shadow: none;
+   }
+.hxPagingList:nth-child(odd) {background-color: rgba(0, 0, 0, 0.10);}
+.hxPagingList:hover {
+   border-color: Black;
+   border-left: 0.1in solid DarkBlue;
+   // border-right: 0.1in solid DarkBlue;
+   }
+
+/* *** NEW ********************************************************************************** */
+.hxPlusMinus { // Button for "+' and "-"
+   font-size: 0.25in; font-weight: bolder;
+   color: White
+   text-shadow: 0.02in 0.02in 0.015in Black;
+   margin-left: 0.040in; margin-top: 0.08in; margin-bottom: 0.10in; // margin-right:2vw;
+   padding: 0.02in; padding-left: 0.1in; padding-right:0.03in; padding-top: 0.04in; padding-bottom: 0.04in;
+   display: inline;
+   border-radius:0.05in;
+   // transition: 0.1s;
+   // border: 0.025in solid White;
+   // background-color: Blue;
+   // box-shadow: 0in 0in 0.05in rgb(192,192,192,0.50) inset;
+   width:0.25in; height: 0.25in;
+   // transition: 0.1s;
+   }
+.hxPlusMinus:hover {
+   box-shadow: 0in 0in 0.12in rgb(0,0,0,0.75) inset;
+   }
+
+tr {
+   color: Black;
+   border: 0.03in solid Red;
+   font-size: 0.15in;
+   margin: 0in; // margin-top: 0in; // 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
+   padding: 0in; // 0.02in;
+/*
+   border: none;
+   border-radius:0.07in;
+   // text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+   // background-image:linear-gradient(to bottom, #66789B 30%, #16284B 95%);
+*/
+   }
+td {
+   color: Black;
+   padding: 0in; // 0.02in;
+   border: 0.03in solid Black;
+   font-size: 0.15in;
+   margin: 0in; // margin-top: 0in; // 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
+   min-width: 2in;
+/*
+   background-color: transparent;
+   border: 0.025in solid Black; padding: 0.2in; margin: 0.2in;
+*/
+   }
+
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+
+// &#x1401; Hollow Down Arrow
+// &#x1403; Hollow Up Arrow
+// &#x1405; Hollow Right Arrow
+// &#x140A; Hollow Left Arrow
+
+// Search - Input Box Formatting
+.Select_Text {
+   background-image: url("./Images/3_Lines.png");
+   font-size: 16px; /* Increase font-size */
+   background-position: 0.1in 0.1in; /* Position the search icon */
+   background-repeat: no-repeat; /* Do not repeat the icon image */
+   padding: 0.75in;
+   width: 100%;
+   color: Red;
+   padding: 12px 20px 12px 40px; /* Add some padding */
+   // border: 1px solid #ddd; /* Add a grey border */
+   margin-bottom: 12px; /* Add some space below the input */
+   }
+
+.hxHorLineGradient {
+   background-image: repeating-linear-gradient(00deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
+   // opacity: 0.4;
+   }
+   
+.hxVerLineGradient {
+   background-image: repeating-linear-gradient(90deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
+   // opacity: 0.4;
+   }
+   
+.hxGridGradient {
+   background-image: repeating-linear-gradient(00deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px),
+                     repeating-linear-gradient(90deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
+   }   
+
+.hxMixedGradient {
+   background-image: repeating-linear-gradient(015deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
+                     repeating-linear-gradient(045deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
+                     repeating-linear-gradient(075deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
+                     repeating-linear-gradient(105deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
+                     repeating-linear-gradient(135deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
+                     repeating-linear-gradient(165deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
+                     repeating-linear-gradient(195deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in);
+   }
+
+.hxCheckerBoard {
+   background: linear-gradient(135deg, #eceddc 25%, transparent 25%),
+   linear-gradient(225deg, #eceddc 25%, transparent 25%),
+   linear-gradient(315deg, #eceddc 25%, transparent 25%),
+   linear-gradient(45deg, #eceddc 25%, transparent 25%); 
+   background-size: 13px 13px;
+   background-color: #782345;   
+   }
+   
+.hxMetalGradient { // not working
+   color: Gray;
+   background-color: Silver;
+   background-image: repeating-linear-gradient(000.000deg, Black 0.00in, transparent 0.02in, transparent 0.04in, White 0.04in, 
+                                                           White 0.06in, Black 0.08in, transparent 0.10in),
+                     repeating-linear-gradient(090.000deg, Black 0.00in, transparent 0.02in, transparent 0.04in, White 0.04in, 
+                                                           White 0.06in, Black 0.08in, transparent 0.10in);
+                     
+   }   
+   
+.hxMetal2 {
+   color: Gray;
+   background-color: Silver;
+   background-image:   -webkit-radial-gradient(  50%   0%,  8% 50%, hsla(0,0%,100%,.2) 0%, hsla(0,0%,100%,0) 100%),
+                       -webkit-radial-gradient(  50% 100%, 12% 50%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 100%),
+                       -webkit-radial-gradient(   0%  50%, 50%  7%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 100%),
+                       -webkit-radial-gradient( 100%  50%, 50%  5%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 100%),
+                        
+                       -webkit-repeating-radial-gradient(  50% 50%, 100% 100%, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   3%, hsla(0,0%,  0%,.1) 3.5%),
+                       -webkit-repeating-radial-gradient(  50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%,.1) 7.5%),
+                       -webkit-repeating-radial-gradient(  50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,0) 2.2%);
+
+}
+
+/* ****************************************************************************************** */
+.hxSectionContainer {
+   font-size: 0.25in;
+   color: #002040;
+   // margin: 0.1in; margin-top: 0.2in; margin-bottom:0.2in;
+   margin: 0in;
+   padding: 0.25in;
+   background-color: #8888ff;
+   border-radius:0.25in;
+   // border: 0.02in solid #788CAD;
+   // border: 0.03in solid rgb(255,255,255,0.25); // #C0D0F0;
+   // border: 0.03in solid Gray;
+   border: 0.04in solid DarkBlue;
+   box-shadow: 
+      0in 0in 0.10in Black inset,
+      0in 0in 0.02in Black,
+      0in 0in 0.2in #405375 inset,
+      0in 0in 0.5in #405375 inset,
+      0in 0in 2.0in #405375 inset,
+      0in 0in 3.0in White inset,
+      0in 0in 5.0in White inset;
+   }
+.hxSectionContainer:hover 
+   {
+      // border: 0.05in solid #C0D0F0;
+      // border: 0.03in solid rgb(255,255,255,0.95); // #C0D0F0;
+   border: 0.04in solid LightGray;
+   }
+
+.hxFloatContainer {
+   display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; align-items:stretch;
+   border: 0.04in solid Green; // #788CAD;
+   // background-color: Orange; // #8888ff;
+   background-color: rgba(255,255,255,0.95);
+   // background-image:url("./Images/BG_Black_Boxes.bmp");
+   // background-image: repeating-linear-gradient(00deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
+   font-size: 0.25in;
+   color: Black; // #45587A;
+   // margin: 0.1in; margin-top: 0.2in; margin-bottom:0.2in;
+   // padding: 0.25in;
+   // border-radius:0.25in;
+   margin:0in;
+   box-shadow: 
+      0.08in 0.08in 0.05in rgba(16,16,16,0.75),
+      0in 0in       0.05in rgba(127,127,127,0.99) inset,
+      0.08in 0.08in 0.12in rgba(255,255,255,0.25) inset,
+      -.08in -.08in 0.06in rgba(64,64,64   ,0.35) inset;
+   // transition: 0.2s;
+   }
+
+.AwesomeShadow {
+   text-shadow:0in 0.00in 0.05in Black, 0in 0.00in 0.15in Black,
+               0in 0.00in 0.05in rgba(0,0,0,0.60),
+               0in 0.10in 0.06in rgba(0,0,0,0.60),
+               0in 0.15in 0.07in rgba(0,0,0,0.60),
+               0in 0.20in 0.09in rgba(0,0,0,0.60),
+               0in 0.25in 0.11in rgba(0,0,0,0.60),
+               0in 0.30in 0.13in rgba(0,0,0,0.60),
+               0in 0.35in 0.16in rgba(0,0,0,0.60),
+               0in 0.40in 0.19in rgba(0,0,0,0.60),
+               0in 0.45in 0.21in rgba(0,0,0,0.60),
+               0in 0.50in 0.25in rgba(0,0,0,0.60),
+               0in 0.60in 0.29in rgba(0,0,0,0.60),
+               0in 0.70in 0.33in rgba(0,0,0,0.60),
+               0in 0.80in 0.38in rgba(0,0,0,0.60),
+               0in 0.90in 0.43in rgba(0,0,0,0.60),
+               0in 1.00in 0.48in rgba(0,0,0,0.60),
+               0in 1.10in 0.54in rgba(0,0,0,0.60),
+               0in 1.20in 0.60in rgba(0,0,0,0.60),
+               0in 1.30in 0.66in rgba(0,0,0,0.60);
+}
+
+article {
+   padding: 0in; // 0.10in;
+   margin: 0in; // 0.10in;
+   // background: aqua;
+   }
+
+//article {
+//   // flex: 1 200px; 
+//   }
+
+/*
+   article:nth-of-type(3) {
+     flex: 3 200px;
+     display: flex;
+     flex-flow: column;
+   }
+   article:nth-of-type(3) div:first-child {
+      flex: 1 100px;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-around;
+      }
+
+
+/* To simplify CSS, comment these in */
+/*  
+header {background: White; background-image: none;}
+section {background-color: White; box-shadow: none; text-shadow: none;}
+button {
+   flex: 1 auto;
+   margin: 5px;
+   font-size: 18px;
+   line-height: 1.5;
+   background-color: LightGray;
+   background-image: none;
+   }
+.hxTransparentButton {}
+*/ 
+
+/* *** REWRITE *************************************************************************************************** */
+hxSection, .hxSection {
+   display: flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; // align-items:stretch;
+   background-color: LightGray;
+   color: Black;
+   padding: 0.050in;
+   margin: 0.050in;
+   text-align: left;
+   font-size: 0.20in;
+   border: 0.04in solid Blue;
+   border-radius: 0.05in;
+/*
+   // width: 100%;
+*/
+ }
+
+hxLogo, .hxLogo {
+   background-image:linear-gradient(to bottom, #95A8CA 0%, #15184A 100%);
+   color: LightBlue;
+   font-size: 0.35in;
+   padding: 0.10in;
+   margin: 0.05in;
+   width: auto;
+   border: 0.020in solid Gray; 
+   border-radius:0.07in;
+   font-weight: bolder; 
+   text-align: center;
+   box-shadow: 0.006in 0.010in 0.010in Black,
+               -.006in -.010in 0.010in White,
+               0in 0in         0.060in Black inset,
+               0in 0in         0.120in LightBlue inset;
+               
+   text-shadow: 
+      0.008in 0.008in 0.014in Black,
+      -.008in -.008in 0.014in White,
+      0in 0in 0.018in LightBlue,
+      0in 0in 0.068in White;
+      0in 0in 0.118in White;
+   }
+
+hxCheckBox, .hxCheckBox {
+   color: Black;
+   text-shadow: none;
+   }
+hxCheckBoxItself, .hxCheckBoxItself {
+   color: Red;
+   text-shadow: none;
+   box-shadow: 0in 0in 0.040in Black inset;
+   }
+
+hxCardBox, .hxCardBox {
+   display: flex; flex-wrap:wrap; flex-flow:column wrap; align-items:stretch; flex-direction:row;
+   background-color: rgba(255,255,255,0.25);
+   border: thin solid rgba(0,0,0,0.50);
+   border-radius: 0.05in;
+   transition 0.2s;
+   text-shadow: none;
+   color: Black; // Blue;
+   font-size: 0.50in;
+   padding: 0.10in;
+   margin: 0.05in;
+   width: auto;
+   border-radius:0.07in;
+   font-weight: bolder; 
+   text-align: center;
+   text-shadow: 0.03in 0.03in 0.03in rgba(0, 0, 0, 0.8);
+   box-shadow: 0.05in 0.05in 0.05in rgba(32,32,32,0.65);
+   }
+hxCardBox:hover, .hxCardBox:hover  {
+   // border: 0.03in solid White;
+   // transition 0.2s;
+   }
+
+hxCardPage, hxCardPage {
+   min-width: 2in;
+   text-align: left;
+   width: 2.0in; 
+   height: auto;
+   font-size: 0.15in;
+   font-weight: bolder;
+   color: Black;
+   margin: 0.02in;
+   padding: 0.03in;
+   border: thin solid rgba(0,0,0,0.50);
+   border-radius: 0.05in;
+   background-color: rgb(223,223,223);
+   box-shadow: 0.05in 0.05in 0.05in rgba(32,32,32,0.65);
+   overflowY: scroll;
+   text-shadow: none;
+   // transition: 0.2s;
+   }
+   // margin: 0.9in; padding: 0.9in; 
+hxCardPage:hover, .hxCardPage:hover {}
+
+hxLogoCard, .hxLogoCard {
+   background-image:linear-gradient(to bottom, #95A8CA 0%, #15184A 100%);
+   min-width: 2in;
+   text-align: center;
+   width: 2.0in; 
+   // height: auto;
+   height: 0.47in;
+   font-weight: bolder;
+   font-size: 0.35in;
+   color: LightBlue;
+   padding: 0.03in;
+   margin: 0.02in;
+   border: thin solid rgba(0,0,0,0.50);
+   border-radius:0.07in;
+   background-color: rgb(223,223,223);
+   box-shadow: 0.05in 0.05in 0.05in rgba(32,32,32,0.65);
+   overflowY: scroll;
+   border-radius: 0.05in;
+   background-color: transparent; // rgb(223,223,223);
+   text-shadow: 0.008in 0.008in 0.014in Black,
+                -.008in -.008in 0.014in White,
+                0in 0in 0.018in LightBlue,
+                0in 0in 0.068in White;
+                0in 0in 0.118in White;
+   overflowY: scroll;
+   // transition: 0.2s;
+   
+/*
+   background-image:linear-gradient(to bottom, #95A8CA 0%, #15184A 100%);
+   color: LightBlue;
+   font-size: 0.35in;
+   padding: 0.10in;
+   margin: 0.05in;
+   width: auto;
+   border: 0.020in solid Gray; 
+   border-radius:0.07in;
+   font-weight: bolder; 
+   text-align: center;
+   box-shadow: 0.006in 0.010in 0.010in Black,
+               -.006in -.010in 0.010in White,
+               0in 0in         0.060in Black inset,
+               0in 0in         0.120in LightBlue inset;
+               
+   text-shadow: 
+      0.008in 0.008in 0.014in Black,
+      -.008in -.008in 0.014in White,
+      0in 0in 0.018in LightBlue,
+      0in 0in 0.068in White;
+      0in 0in 0.118in White;
+*/
+   }
+
+
+
+
+hxClearCardPage, .hxClearCardPage {
+   text-align: left;
+   width: 2.0in; 
+   height: auto;
+   font-size: 0.15in;
+   font-weight: bolder;
+   color: Black;
+   margin: 0.02in; // 0.02in; // 0.06in; 
+   padding: 0.03in;
+   border: thin solid rgba(0,0,0,0.50);
+   border-radius: 0.05in;
+   background-color: transparent; // rgb(223,223,223);
+   box-shadow: 0.05in 0.05in 0.05in rgba(32,32,32,0.65);
+   overflowY: scroll;
+   text-shadow: none;
+   // transition: 0.2s;
+   }
+hxClearCardPage:hover, .hxClearCardPage:hover {}
+
+hxCardWide, .hxCardWide {
+   display: block;
+   font-size: 0.15in;
+   font-weight: bolder;
+   box-shadow: 0.05in 0.05in 0.05in rgba(32,32,32,0.65);
+   text-shadow: none;
+   text-align: left;
+   border: 0.02in solid rgba(0,0,0,0.50);
+   color: Black;
+   margin: 0.02in; // 0.02in; // 0.06in; 
+   padding: 0.03in;
+   border-radius: 0.05in;
+   height: auto;
+   text-shadow: none;
+/*
+   width: 100%;
+   background-color: rgb(223,223,223);
+*/
+/*
+   overflowY: scroll;
+*/
+   transition: 0.2s;
+   }
+hxCardWide:hover, .hxCardWide:hover {}
+
+hxCardHeading, .hxCardHeading, hxCardTitle, .hxCardTitle {
+   color: DarkBlue;
+   // transition: 0.2s;
+   text-shadow: none;
+   font-size: 0.20in;
+   margin: 0in; margin-left:0.1in;
+/*
+   text-shadow: 0.01in 0.01in 0.02in rgba(32,32,32,0.75);
+*/
+   }
+
+hxCardText, .hxCardText {
+   color: Black;
+   text-shadow: none;
+   text-align: left;
+   font-weight: normal;
+   font-size: 0.15in;
+   text-shadow: none;
+   margin: 0.08in; margin-top: 0in;
+   padding: 0.05in;
+   border: none;
+   box-shadow: none;
+   }
+
+hxClearCardButton, .hxClearCardButton {
+   transition 0.2s;
+   background-color: transparent;
+   border: 0.03in solid transparent;
+   font-size: 0.15in;
+   color: Black;
+   display: block;
+   border-radius: 0.06in;
+   margin: 0.04in;;  // margin-bottom: 0.20in; // Card Button
+   padding: 0.035in;; 
+   font-variant:normal;
+   text-align:center;
+   box-shadow: none; // 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   text-shadow: none;
+   }
+hxClearCardButton:hover, .hxClearCardButton:hover {}
+
+hxGreenCardButton, .hxGreenCardButton {
+   padding: 0.07in;
+   background-color: rgb(0,128,0);
+   border: none;
+   color: White;
+   display: block;
+   text-align:center;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   font-size: 0.15in;
+   border-radius: 0.04in; // 0.06in;
+   text-shadow: none;
+   font-variant:normal;
+   margin: 0.04in;;
+   transition 0.2s;
+   }
+hxGreenCardButton:hover, .hxGreenCardButton:hover {
+   background-color: rgb(0,191,0);
+   color: White;
+   transition 0.2s;
+   }
+
+hxBlueCardButton, .hxBlueCardButton {
+   padding: 0.07in;
+   background-color: rgb(0,0,128);
+   border: none;
+   color: White;
+   display: block;
+   text-align:center;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   font-size: 0.15in;
+   border-radius: 0.04in; // 0.06in;
+   text-shadow: none;
+   font-variant:normal;
+   margin: 0.04in;;
+   transition 0.2s;
+   }
+hxBlueCardButton:hover, .hxBlueCardButton:hover {
+   background-color: rgb(0,0,191);
+   color: White;
+   transition 0.2s;
+   }
+
+hxRedCardButton, .hxRedCardButton {
+   padding: 0.07in;
+   background-color: rgb(128,0,0);
+   border: none;
+   color: White;
+   display: block;
+   text-align:center;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   font-size: 0.15in;
+   border-radius: 0.04in; // 0.06in;
+   text-shadow: none;
+   font-variant:normal;
+   margin: 0.04in;;
+   transition 0.2s;
+   }
+hxRedCardButton:hover, .hxRedCardButton:hover {
+   background-color: rgb(191,0,0);
+   color: White;
+   transition 0.2s;
+   }
+
+hxGrayCardButton, .hxGrayCardButton {
+   padding: 0.07in;
+   background-color: rgb(148,148,148);
+   border: none;
+   color: Black;
+   display: block;
+   text-align:center;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   font-size: 0.15in;
+   border-radius: 0.04in; // 0.06in;
+   text-shadow: none;
+   font-variant:normal;
+   margin: 0.04in;;
+   transition 0.2s;
+   }
+hxGrayCardButton:hover, .hxGrayCardButton:hover {
+   background-color: rgb(190,190,190);
+   color: Black;
+   transition 0.2s;
+   }
+
+hxCopyrightText, .hxCopyrightText {
+   // display: flex; flex-direction:row; flex-wrap:wrap; align-items:stretch;
+   color: Black;
+   background-color: transparent;
+   font-size:0.20in; color:Black;
+   font-weight: normal;
+   margin:0in; 
+   padding: 0.2in;
+   font-variant:normal;
+   text-align:center;
+   text-shadow: none;
+   }
+
+/* MsgBox and Related items //MsgBox// */
+MsgBox_Outside {
+   background-color: White;
+   border: 0.03in solid Black;
+   // background-image: linear-gradient(to right, #66a80f, #c0eb75); 
+   color: Black;
+   min-width: 3in;
+   width: 3in;
+   font-weight: bolder;
+   font-size: 0.15in;
+   margin:0.15in; 
+   padding: 0.2in 0.2in 0.2in; // 16px 8px 8px; 
+   font-variant:normal;
+   text-align:center;
+   border-radius: 0.06in;
+   display: block;
+   position: absolute; 
+   left: 50%; 
+   margin-left: -160px; 
+   background-size:cover; 
+   box-sizing: border-box; 
+   }
+
+.MsgBox_Prompt {
+   width: 100%;
+   background-color: transparent;
+   display: block;
+   margin:0in; margin-bottom: 0.07in;
+   color: Black;
+   font-size:0.20in; color:Black;
+   padding: 0.1in;
+   font-variant:normal;
+   text-align:center;
+   font-size: 0.15in;
+   display: block;
+   border-radius: 0.06in;
+   font-weight: bold;
+   border: none;
+   }
+
+.MsgBox_Button {
+   color: Black;
+   font-size: 0.15in;
+   background-color: White;
+   margin:0in; // margin-bottom: 0.10in;
+   // padding: 0.1in;
+   text-align:center;
+   // border: none; // 0.03in solid rgb(128,0,0);
+   border: 0.03in solid Black;
+   border-radius: 0.06in;
+   width: 32%;
+   display:inline;
+   font-variant:normal;
+   font-weight: bold;
+   }
+
+// HELP TIP STUFF//
+// Source: https://tutorialzine.com/2014/07/css-inline-help-tips //
+// Modified by James Coons for "left-and-below-of-div" help text //
+.help-tip{
+   text-align: center;
+   font-size: 0.15in;
+   color: Black;
+   border-radius: 50%;
+   width: 24px;
+   height: 24px;
+   font-size: 14px;
+   line-height: 26px;
+   cursor: default;
+   }
+
+.help-tip:before{
+   content:'Welcome';
+   font-weight: bold;
+   font-size: 0.15in;
+   color:Black;
+   }
+
+.help-tip:hover p{
+   display:block;
+   transform-origin: 100% 0%;
+   -webkit-animation: fadeIn 0.3s ease-in-out;
+   animation: fadeIn 0.3s ease-in-out;
+   }
+
+.help-tip p{    /* The tooltip */
+   display: none;
+   text-align: left;
+   background-color: #1E2021;
+   padding: 20px;
+   width: 2in;
+   position: absolute;
+   border-radius: 3px;
+   // right: -4px;
+   color: #FFF;
+   font-size: 13px;
+   line-height: 1.4;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   }
+
+.help-tip p:before{ /* The pointer of the tooltip */
+    position: absolute;
+    content: '';
+    width:0;
+    height: 0;
+    border:6px solid transparent;
+    border-bottom-color:#1E2021;
+    // right:10px;
+    top:-12px;
+   }
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+   width:100%;
+   height:40px;
+   content:'';
+   position: absolute;
+   top:-40px;
+   left:0;
+   }
+
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+   0% {opacity:0; transform: scale(0.6);}
+   100% {opacity:100%;transform: scale(1);}
+   }
+
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+
+hxLinkButton, .hxLinkButton {
+   width: 2.4in; 
+   height:auto; 
+   padding: 0.03in; 
+   margin: 0.03in; margin-top: 0.05in; margin-bottom: 0.05in;
+   font-size: 0.14in; 
+   text-shadow: none;
+   text-align: left; 
+   text-align: left; 
+   font-weight: boldest; 
+   box-shadow: 0in    0in    0.02in rgba(0, 0, 0, 0.95),
+               0.01in 0.01in 0.03in rgba(0, 0, 0, 0.95);
+   border: 0.02in solid Gray; //test//prod
+   }
