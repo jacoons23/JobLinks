@@ -62,33 +62,19 @@ what are the names of these types? NOPREFIX=TAG, DOTPREFIX=CLASS, #PREFIX=ID
 // width: calc(100% - 100px);
 // text-align: left|right|center|justify|inherit
 //
-// Special Symbols: h2:after {content: ' \27A4';}
-//
-//   Ξ   &#x039E   GREEK CAPITAL LETTER XI       (hamburger menu)
-//   ‖   &#x2016   DOUBLE VERTICAL LINE          (||)
-//   ⁝   &#x205D   TRICOLON                      (3 vertical dots menu)
-//   ⁞   &#x205E   VERTICAL FOUR DOTS            (4 vertical dots menu)
-//   ∥   &#x2225   PARALLEL TO                   (parallel symbol)
-//   ≡   &#x2261   IDENTICAL TO                  (3-hamburger menu)
-//   ≣   &#x2263   STRICTLY EQUIVALENT TO        (4-hamburger menu)
-//   ⋮   &#x22EE   VERTICAL ELLIPSIS             (3-vert hamburger)
-//   ⋯   &#x22EF   MIDLINE HORIZONTAL ELLIPSIS   (3-hor hamburger)
-//   ☰   &#x2630   TRIGRAM FOR HEAVEN            (3-ver hamburger)
-//   ⚌   &#x268C   DIGRAM FOR GREATER YANG       (3-ver hamburger)
-//
-
 /* *** SHORTCUTS ************************************************************************************************* */
-.visible          {display: block}
-.hidden, hidden   {display: none}
-.inline           {display: inline}
-.block            {display: block}
-.runin            {display: runin}
-.hxBlack          {color: Black}
-.hxWhite          {color: White}
+.visible                {display: block}
+.hidden, hidden         {display: none}
+.inline                 {display: inline}
+.block                  {display: block}
+runin, .runin, #runin   {display: run-in}
+.hxBlack                {color: Black}
+.hxWhite                {color: White}
+Red, .Red, #Red         {color: Red; display:inline; }
 .inset {
    box-shadow: 0in 0in       0.01in Black,
                0.015in 0.015in 0.04in Black inset;
-   }           
+   }
 
 keyword, .keyword {
    font-weight:boldest;
@@ -108,17 +94,17 @@ html {margin:0in; padding:0in; font-family: sans-serif;
    background-image:url("./Images/BG_Black_Boxes.bmp");
    }
 body {
-   margin: 0in;   // margin: 0.025in; 
+   margin: 0in;   // margin: 0.025in;
    padding: 0in;  // padding: 0.025in;
    background-color: #B0B0B0; // #0000ff;
    border: none; // 0.04in solid Orange; //test//prod
    background-image:url("./Images/BG_Black_Boxes.bmp");
-   // box-shadow: -3px -3px 3px rgb(105, 105, 105) inset; 2px 2px 2px rgba(15, 11, 15, 0.856), 2px 2px 2px white inset, 
+   // box-shadow: -3px -3px 3px rgb(105, 105, 105) inset; 2px 2px 2px rgba(15, 11, 15, 0.856), 2px 2px 2px white inset,
    // transition: 0.5s;
    }
 
 hr {
-   background-color: #788CAD; 
+   background-color: #788CAD;
    height: 0.006in;
    border: 0.025in solid #304060;
    border-radius:0.025in;
@@ -127,9 +113,9 @@ hr {
                0in 0in 3.025in rgba(15, 11, 15, 0.8);
    // 3px 3px 3px 10px rgba(15, 11, 15, 0.7), 0px 0px 2px Black;
    }
-      
+
 hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
-   display: flex; flex-align-text:left; flex-direction:row; flex-wrap:wrap; flex-flow:column wrap; align-items:stretch; // flex:20%; 
+   display:flex; flex-align-text:left; flex-direction:row; flex-wrap:wrap; flex-flow:column wrap; align-items:stretch; // flex:20%;
    align-content: flex-start;
    border: 0px; margin: 0px; padding: 0px;               // PROD
    // border: 2px solid Red; margin: 10px; padding: 10px;      // TEST
@@ -145,7 +131,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    text-align:center;
    margin: 0.08in;
    padding: 0.50in;
-   border: none; 
+   border: none;
    display: run-in;
    text-shadow: 0in    0in    0.12in rgba(0, 0, 0, 0.50),
                 0.02in 0.02in 0.04in rgba(0, 0, 0, 0.95);
@@ -153,7 +139,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
 .hxQuotation::first-letter {
    font-weight: bold;
    initial-letter: 5;
-   font-size: 0.55in; 
+   font-size: 0.55in;
    color: White;
    text-shadow: 0.06in 0.06in 0.16in Black,
                 0.06in 0.06in 0.12in rgba(0, 0, 0, 0.99);
@@ -168,53 +154,53 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
 
 /* *** TESTING *************************************************************************************************** */
 .hxWaveText {
-   color: black; margin-left: 25px; 
+   color: black; margin-left: 25px;
    background-color: transparent;
-   margin 0.8in;;
+   margin 0.8in;
    font-size:4em;
    font-variant: fantasy;
-   text-shadow: 
-      +2px +0px 1px white     , -2px +0px 1px white  , +0px +2px 1px white  , +0px -2px 1px white ,   
+   text-shadow:
+      +2px +0px 1px white     , -2px +0px 1px white  , +0px +2px 1px white  , +0px -2px 1px white ,
          +2px +2px 1px white  , -2px +2px 1px white  , -2px -2px 1px white  , +2px -2px 1px white ,
-      +4px +0px 1px black     , -4px +0px 1px black  , +0px +4px 1px black  , +0px -4px 1px black ,   
+      +4px +0px 1px black     , -4px +0px 1px black  , +0px +4px 1px black  , +0px -4px 1px black ,
          +4px +4px 1px black  , -4px +4px 1px black  , -4px -4px 1px black  , +4px -4px 1px black ,
-      +6px +0px 1px white     , -6px +0px 1px white  , +0px +6px 1px white  , +0px -6px 1px white ,   
+      +6px +0px 1px white     , -6px +0px 1px white  , +0px +6px 1px white  , +0px -6px 1px white ,
          +6px +6px 1px white  , -6px +6px 1px white  , -6px -6px 1px white  , +6px -6px 1px white ,
-      +8px +0px 1px black     , -8px +0px 1px black  , +0px +8px 1px black  , +0px -8px 1px black ,   
+      +8px +0px 1px black     , -8px +0px 1px black  , +0px +8px 1px black  , +0px -8px 1px black ,
          +8px +8px 1px black  , -8px +8px 1px black  , -8px -8px 1px black  , +8px -8px 1px black ,
-      +10px +0px 1px white    , -10px +0px 1px white , +0px +10px 1px white , +0px -10px 1px white ,   
+      +10px +0px 1px white    , -10px +0px 1px white , +0px +10px 1px white , +0px -10px 1px white ,
          +10px +10px 1px white, -10px +10px 1px white, -10px -10px 1px white, +10px -10px 1px white ,
-      +12px +0px 1px black    , -12px +0px 1px black , +0px +12px 1px black , +0px -12px 1px black ,   
+      +12px +0px 1px black    , -12px +0px 1px black , +0px +12px 1px black , +0px -12px 1px black ,
          +12px +12px 1px black, -12px +12px 1px black, -12px -12px 1px black, +12px -12px 1px black ,
-      +14px +0px 1px white    , -14px +0px 1px white , +0px +14px 1px white , +0px -14px 1px white ,   
+      +14px +0px 1px white    , -14px +0px 1px white , +0px +14px 1px white , +0px -14px 1px white ,
          +14px +14px 1px white, -14px +14px 1px white, -14px -14px 1px white, +14px -14px 1px white ;
    }
 
 .hxRainbowText {
-   margin 0.8in;;
-   color: black; margin-left: 25px; 
+   margin 0.8in;
+   color: black; margin-left: 25px;
    background-color: transparent;
    font-size:4em;
-   text-shadow: 
-      +2px +0px 1px red        , -2px +0px 1px red     , +0px +2px 1px red     , +0px -2px 1px red ,   
+   text-shadow:
+      +2px +0px 1px red        , -2px +0px 1px red     , +0px +2px 1px red     , +0px -2px 1px red ,
          +2px +2px 1px red     , -2px +2px 1px red     , -2px -2px 1px red     , +2px -2px 1px red ,
-      +4px +0px 1px orange     , -4px +0px 1px orange  , +0px +4px 1px orange  , +0px -4px 1px orange ,   
+      +4px +0px 1px orange     , -4px +0px 1px orange  , +0px +4px 1px orange  , +0px -4px 1px orange ,
          +4px +4px 1px orange  , -4px +4px 1px orange  , -4px -4px 1px orange  , +4px -4px 1px orange ,
-      +6px +0px 1px yellow     , -6px +0px 1px yellow  , +0px +6px 1px yellow  , +0px -6px 1px yellow ,   
+      +6px +0px 1px yellow     , -6px +0px 1px yellow  , +0px +6px 1px yellow  , +0px -6px 1px yellow ,
          +6px +6px 1px yellow  , -6px +6px 1px yellow  , -6px -6px 1px yellow  , +6px -6px 1px yellow ,
-      +8px +0px 1px green      , -8px +0px 1px green   , +0px +8px 1px green   , +0px -8px 1px green ,   
+      +8px +0px 1px green      , -8px +0px 1px green   , +0px +8px 1px green   , +0px -8px 1px green ,
          +8px +8px 1px green   , -8px +8px 1px green   , -8px -8px 1px green   , +8px -8px 1px green ,
-      +10px +0px 1px blue      , -10px +0px 1px blue   , +0px +10px 1px blue   , +0px -10px 1px blue ,   
+      +10px +0px 1px blue      , -10px +0px 1px blue   , +0px +10px 1px blue   , +0px -10px 1px blue ,
          +10px +10px 1px blue  , -10px +10px 1px blue  , -10px -10px 1px blue  , +10px -10px 1px blue ,
-      +12px +0px 1px indigo    , -12px +0px 1px indigo , +0px +12px 1px indigo , +0px -12px 1px indigo ,   
+      +12px +0px 1px indigo    , -12px +0px 1px indigo , +0px +12px 1px indigo , +0px -12px 1px indigo ,
          +12px +12px 1px indigo, -12px +12px 1px indigo, -12px -12px 1px indigo, +12px -12px 1px indigo ,
-      +14px +0px 1px violet    , -14px +0px 1px violet , +0px +14px 1px violet , +0px -14px 1px violet ,   
+      +14px +0px 1px violet    , -14px +0px 1px violet , +0px +14px 1px violet , +0px -14px 1px violet ,
          +14px +14px 1px violet, -14px +14px 1px violet, -14px -14px 1px violet, +14px -14px 1px violet ;
    }
 
 .hxCharcoalText {
-   margin 0.8in;;
-   color: transparent; margin-left: 25px; 
+   margin 0.8in;
+   color: transparent; margin-left: 25px;
    background-color: transparent;
    font-size:4em;
    text-shadow:
@@ -224,14 +210,26 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    }
 
 .hxChalkText {
-   margin 0.8in;;
-   color: transparent; margin-left: 25px; 
+   margin 0.8in;
+   color: transparent; margin-left: 25px;
    background-color: transparent;
    font-size:4em;
    text-shadow:
       0px 0px 4px rgba(255, 255, 255, 0.7),
       0px 0px 8px rgba(255, 255, 255, 0.7),
       0px 0px 32px rgba(255, 255, 255, 0.7);
+   }
+
+hxSilverButton, .hxSilverButton {
+   background-image:url('./images/BG_Silver.bmp');
+   background-size:contain;
+   color: black; margin-left: 25px;
+   font-size:0.50in;
+   margin 0.8in;
+   box-shadow: 0.025in 0.025in 0.050in rgba(15, 11, 15, 0.8),
+               0in 0in 0.055in Black inset,
+               0in 0in 0.070in White inset,
+               0in 0in 0.025in rgba(15, 11, 15, 0.8);
    }
 
 /* *************************************************************************************************************** */
@@ -266,7 +264,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
 // *** "gx" Revamp //BODY //PAGE //MENU **********************************************************************
 .hxBodyContainer {
    background-color: #B0B0B0; // #909090; color: Black;
-   border: 0in solid Red; 
+   border: 0in solid Red;
    // border: 0.02in solid rgb(255, 255, 255, 0.15);
    font-size: 0.10in; color: White;
    margin:0in; padding: 0in;
@@ -275,14 +273,14 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    }
 
 .hxMenuContainer {
-   // display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:left; align-items:flex-start; // stretch;
+   // display:flex; flex-direction:row; flex-wrap:wrap; flex-align-text:left; align-items:flex-start; // stretch;
    background-color: #45587A;
    border: 0in; // 0.04in solid Purple;
    font-size: 0.25in; color: White;
    height: auto; height: auto;
    // border-radius:0.07in;
-   box-shadow: 0in +6px 0.06in rgba(15, 11, 15, 0.7), 
-               0in -6px 0.06in rgba(15, 11, 15, 0.7), 
+   box-shadow: 0in +6px 0.06in rgba(15, 11, 15, 0.7),
+               0in -6px 0.06in rgba(15, 11, 15, 0.7),
                0in  0in 0.02in Black;
    margin: 0in; padding: 0in;
    background-image:linear-gradient(to bottom, #55688A 30%, #35383A 95%);
@@ -296,7 +294,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    background-color: rgba(255,255,255,0.30);
    border:none; // 0.02in solid rgb(255, 255, 255, 0.15); // border-left: 0.02in solid rgb(255, 255, 255, 0.15);
    text-align:center;
-   margin:0in; 
+   margin:0in;
    padding: 0.04in; // 0.1in;
    min-width: 1.6in;
    max-width: 2.0in;
@@ -336,7 +334,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    color: Black; // rgba(159,159,64,0.95);
    width: 2in;
    height: 0.35in;
-   width:1.5in;   
+   width:1.5in;
    font-size:0.20in; font-weight: bold; font-variant:normal;
    margin: 0in; margin-bottom: 0.02in; margin-right: 0.4in;
    text-align:center;
@@ -394,16 +392,16 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
 */
    }
 .hxMenuButtonNormal:hover {
-   // background-color: #90A3C0; 
+   // background-color: #90A3C0;
    background-color: rgba(255,255,255,0.10);
    color: DarkBlue;
    box-shadow: -0.02in -0.02in 0.01in rgba(192, 192, 192, 0.6) inset,
                +0.02in +0.02in 0.01in rgba(8,8,8, 0.6) inset;
    // transition: 0.1s;
    }
-.hxMenuButtonNormal:focus 
+.hxMenuButtonNormal:focus
    {
-   // background-color: #102344; 
+   // background-color: #102344;
    outline: none;
    background-color: rgba(255,255,255,0.02);
    // transition: 0.1s;
@@ -416,7 +414,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    color: Black;
    margin-top: 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
    padding: 0.10in;
-   height: auto; 
+   height: auto;
    border-radius:0.07in;
    box-shadow: +0.02in +0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
                -0.02in -0.02in 0.02in rgba(8,8,8, 0.9) inset;
@@ -428,7 +426,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    box-shadow: -0.02in -0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
                +0.02in +0.02in 0.02in rgba(8,8,8, 0.9) inset;
    color: DarkBlue;
-   background-color: #90A3C0; 
+   background-color: #90A3C0;
    // transition: 0.1s;
    }
 .hxMenuButtonSpecial:focus {
@@ -444,7 +442,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    margin-top: 0.06in; margin-bottom: 0.03in; margin-left: 0.06in; margin-right: 0.06in;
    padding: 0.10in;
    border-radius:0.07in;
-   height: auto; 
+   height: auto;
    box-shadow: -0.02in -0.02in 0.02in rgba(192, 192, 192, 0.9) inset,
                +0.02in +0.02in 0.02in rgba(8,8,8, 0.9) inset;
    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
@@ -463,7 +461,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    font-size: 0.20in;
    display: inline;
    border: 0.025vw solid White;
-   border-radius:0.6vw; 
+   border-radius:0.6vw;
    // transition: 0.1s;
    background-color: Blue;
    padding-left: 1vw; padding-right:1vw;
@@ -479,7 +477,7 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    // transition: 0s;
 /*
    box-shadow: 0px 0px 16px Black;
-*/ 
+*/
 
    }
 .hxShowHideInfo:focus {
@@ -488,26 +486,26 @@ hxFlexBorder, .hxFlexBorder { // Invisible Flex Border around a Section (Red)
    content: attr(title); //dynamic//calculated//research this//
    padding: 4px 8px;
    position: absolute;
-   left: 0; 
+   left: 0;
    top: 100%;
-   white-space: nowrap; 
-   border-radius: 5px;  
-   box-shadow: 0px 0px 4px #222;  
+   white-space: nowrap;
+   border-radius: 5px;
+   box-shadow: 0px 0px 4px #222;
 */
    }
 
-hxSection, .hxSection { 
+hxSection, .hxSection {
    color: Black;
    border: 0.02in solid Orange; // #788CAD;
 /*
-   margin: 0.5in; 
+   margin: 0.5in;
    margin-top: 0.2in; margin-bottom:0.2in;
    padding: 0.25in;
    color: White; // #45587A;
    border-radius:0.12in;
    font-size: 0.25in;
    // background-color: #8888ff;
-   box-shadow: 
+   box-shadow:
       0in 0in 0.10in Black inset,
       0in 0in 0.02in Black,
       0in 0in 0.2in #405375 inset,
@@ -555,7 +553,7 @@ hxSectionHeadingText, .hxSectionHeadingText {
    padding: 0in;
    background-color: Transparent;
    font-weight: bolder;
-   border: none; 
+   border: none;
    color: Red; // #203355;
    }
 
@@ -573,20 +571,21 @@ hxSectionHeadingText, .hxSectionHeadingText {
    // transition: 0.1s;
    }
 
-.hx3D { 
-   // Use to give 3D button effect to any element
-   background-image:linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(32,32,32,0.1), rgba(32,32,32,0.4), rgba(0,0,0,0.7));
-   box-shadow: 0.02in 0.02in 0.06in Black,
-               6px 6px 10px rgba(15, 11, 15, 0.7), 0px 0px 2px Black,
-               0in 0in 0.10in 0.02in rgba(169,110,054,0.90) inset;
+.hx3D {
+   // background-image:linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(32,32,32,0.75), rgba(32,32,32,0.75), rgba(0,0,0,0.75));
+   // background-image:linear-gradient(to bottom, transparent, transparent, transparent, transparent);
+   background-color: transparent;
+   box-shadow:
+      0in 0.025in 0.06in rgba(255,255,255,0.99) inset,
+      0in -.025in 0.06in rgba( 64, 64, 64,0.99) inset;
    // transition: 0.1s;
    }
 
-.hx3DInset { 
+.hx3DInset {
    // Use to give 3D inset effect to any element
    background-image:linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(32,32,32,0.1), rgba(32,32,32,0.4), rgba(0,0,0,0.7));
-   box-shadow: +0.02in +0.02in 0.04in rgba(192,192,192,0.8) inset,
-               -0.02in -0.02in 0.04in rgba(64,64,64,0.2) inset;
+   box-shadow: +0in +0.025in 0.04in rgba(192,192,192,0.8) inset,
+               +0in -0.025in 0.04in rgba(64,64,64,0.2) inset;
    // transition: 0.1s;
    }
 
@@ -597,7 +596,7 @@ hxSectionHeadingText, .hxSectionHeadingText {
    color: Black;
    font-weight: bolder;
    border: 0.02in solid White;
-   border-radius:0.05in; 
+   border-radius:0.05in;
    margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
    padding: 0.1in;
    // transition: 0.1s;
@@ -612,7 +611,7 @@ hxSectionHeadingText, .hxSectionHeadingText {
    border: 0.02in solid White;
    margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
    padding: 0.1in;
-   border-radius:0.05in; 
+   border-radius:0.05in;
    // transition: 0.1s;
    }
 
@@ -625,7 +624,7 @@ hxSectionHeadingText, .hxSectionHeadingText {
    border: 0.02in solid White;
    margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
    padding: 0.1in;
-   border-radius:0.05in; 
+   border-radius:0.05in;
    // transition: 0.1s;
    }
 
@@ -638,18 +637,18 @@ hxSectionHeadingText, .hxSectionHeadingText {
    border: 0.02in solid White;
    margin: 0.02in; margin-left: 0.0002in; margin-right: 0.02in; margin-top: 0.08in; margin-bottom: 0.08in;
    padding: 0.1in;
-   border-radius:0.05in; 
+   border-radius:0.05in;
    // transition: 0.1s;
    }
 
-.hxButtonNav {
+hxButtonNav, .hxButtonNav {
    background-color: transparent; // rgba(255,255,255,0.90)
    font-size: 0.15in;
    font-weight: bolder;
    width: 0.35in;
    color: White;
    border: 0.02in solid White;
-   // border-radius:0.05in; 
+   // border-radius:0.05in;
    text-align: center;
    margin: 0in; margin-left: 0in; margin-top: 0.025in; margin-bottom: 0.035in; // margin-bottom: 0.025in;
    padding: 0in; padding-top: 0.05in; padding-bottom: 0.05in;
@@ -658,32 +657,32 @@ hxSectionHeadingText, .hxSectionHeadingText {
 
 .hxContainer3 {
    // Left over from axContainer3, but it is still being used
-   display: flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; align-items:stretch;
+   display:flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; align-items:stretch;
    background-color: rgba(255, 255, 255, 0.25);
    border: 0.4vw solid rgba(255, 255, 255, 0.25);
-   border-radius:1.0vw; 
-   margin: 0.5em; padding: 0.5em; 
+   border-radius:1.0vw;
+   margin: 0.5em; padding: 0.5em;
    box-shadow: 4px 4px 4px rgba(15, 11, 15, 0.7), 0px 0px 4px Black;
    // transition: 0.1s;
    }
 
 /* *** Progress Bar, Notes Container ***************************************************************************** */
 .hxProgressBar hxProgressBar {
-   display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; align-items:stretch;
+   display:flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; align-items:stretch;
    // background-color: #45587A;
    font-size: 0.12in; color: White;
    margin: 0in; // margin-bottom: 0.12in;
-   padding: 0in; // 0.06in; padding-left: 0.12in; 
+   padding: 0in; // 0.06in; padding-left: 0.12in;
    height: auto; height: auto;
    border: 0.02in solid Orange;
    border-radius:0.05in;
-   box-shadow: 0in +0.02in 0.06in rgba(15, 11, 15, 0.8), 
+   box-shadow: 0in +0.02in 0.06in rgba(15, 11, 15, 0.8),
                0in  0in 0.02in Black;
    // transition: 0.2s;
    }
 
 .hxNotes, hxNotes { // Container for Note-Type Text
-   display: flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; // align-items:stretch;
+   display:flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; // align-items:stretch;
    background-color: #FEFE88;
    font-size: 0.15in;
    // display: block;
@@ -700,18 +699,18 @@ hxSectionHeadingText, .hxSectionHeadingText {
    // transition: 0.1s;
    box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
    text-shadow: none;
-   
-   margin: 0.02in; 
+
+   margin: 0.02in;
    // background-color: LightBlue;
    }
 
 .hxCard { // Container for White Card
-   display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; // align-items:stretch; // flex:20%; 
+   display:flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; // align-items:stretch; // flex:20%;
    background-color: White;
    border: 0.02in solid rgb(169,110,054);
    font-size: 0.20in;
    border-radius:0.075in;
-   margin: 0.9in; padding: 0.9in; 
+   margin: 0.9in; padding: 0.9in;
    color: Black;
    width: 2in; height: 2in;
    overflow: hidden; // auto; // hidden; // scroll; // "visible|hidden|scroll|auto|initial|inherit"
@@ -721,14 +720,14 @@ hxSectionHeadingText, .hxSectionHeadingText {
 
 /* *** App/Companies List ************************************************************************************* */
 .hxPagingList {
-   display: flex; align-items: stretch;
+   display:flex; align-items: stretch;
    background-color: rgba(255, 255, 255, 0.30);
    font-size: 0.15in;
    font-weight: bold;
    color: Black;
-   border: 0.02in solid LightBlue; 
-   border-top: 0.01in solid LightBlue; 
-   border-bottom: 0.01in solid LightBlue; 
+   border: 0.02in solid LightBlue;
+   border-top: 0.01in solid LightBlue;
+   border-bottom: 0.01in solid LightBlue;
    border-left: 0.1in solid White;
    margin: 0in;
    padding: 0in; padding-left: 0.10in;
@@ -798,11 +797,6 @@ td {
 /* *************************************************************************************************************** */
 /* *************************************************************************************************************** */
 
-// &#x1401; Hollow Down Arrow
-// &#x1403; Hollow Up Arrow
-// &#x1405; Hollow Right Arrow
-// &#x140A; Hollow Left Arrow
-
 // Search - Input Box Formatting
 .Select_Text {
    background-image: url("./Images/3_Lines.png");
@@ -821,16 +815,16 @@ td {
    background-image: repeating-linear-gradient(00deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
    // opacity: 0.4;
    }
-   
+
 .hxVerLineGradient {
    background-image: repeating-linear-gradient(90deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
    // opacity: 0.4;
    }
-   
+
 .hxGridGradient {
    background-image: repeating-linear-gradient(00deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px),
                      repeating-linear-gradient(90deg, Gray 0, DarkGray 2px, transparent 0, transparent 6px);
-   }   
+   }
 
 .hxMixedGradient {
    background-image: repeating-linear-gradient(015deg, Black 0.00in, White 0.2in, transparent 0.2in, transparent 0.6in),
@@ -846,21 +840,21 @@ td {
    background: linear-gradient(135deg, #eceddc 25%, transparent 25%),
    linear-gradient(225deg, #eceddc 25%, transparent 25%),
    linear-gradient(315deg, #eceddc 25%, transparent 25%),
-   linear-gradient(45deg, #eceddc 25%, transparent 25%); 
+   linear-gradient(45deg, #eceddc 25%, transparent 25%);
    background-size: 13px 13px;
-   background-color: #782345;   
+   background-color: #782345;
    }
-   
+
 .hxMetalGradient { // not working
    color: Gray;
    background-color: Silver;
-   background-image: repeating-linear-gradient(000.000deg, Black 0.00in, transparent 0.02in, transparent 0.04in, White 0.04in, 
+   background-image: repeating-linear-gradient(000.000deg, Black 0.00in, transparent 0.02in, transparent 0.04in, White 0.04in,
                                                            White 0.06in, Black 0.08in, transparent 0.10in),
-                     repeating-linear-gradient(090.000deg, Black 0.00in, transparent 0.02in, transparent 0.04in, White 0.04in, 
+                     repeating-linear-gradient(090.000deg, Black 0.00in, transparent 0.02in, transparent 0.04in, White 0.04in,
                                                            White 0.06in, Black 0.08in, transparent 0.10in);
-                     
-   }   
-   
+
+   }
+
 .hxMetal2 {
    color: Gray;
    background-color: Silver;
@@ -868,7 +862,7 @@ td {
                        -webkit-radial-gradient(  50% 100%, 12% 50%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 100%),
                        -webkit-radial-gradient(   0%  50%, 50%  7%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 100%),
                        -webkit-radial-gradient( 100%  50%, 50%  5%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 100%),
-                        
+
                        -webkit-repeating-radial-gradient(  50% 50%, 100% 100%, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   3%, hsla(0,0%,  0%,.1) 3.5%),
                        -webkit-repeating-radial-gradient(  50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%,.1) 7.5%),
                        -webkit-repeating-radial-gradient(  50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,0) 2.2%);
@@ -888,7 +882,7 @@ td {
    // border: 0.03in solid rgb(255,255,255,0.25); // #C0D0F0;
    // border: 0.03in solid Gray;
    border: 0.04in solid DarkBlue;
-   box-shadow: 
+   box-shadow:
       0in 0in 0.10in Black inset,
       0in 0in 0.02in Black,
       0in 0in 0.2in #405375 inset,
@@ -897,7 +891,7 @@ td {
       0in 0in 3.0in White inset,
       0in 0in 5.0in White inset;
    }
-.hxSectionContainer:hover 
+.hxSectionContainer:hover
    {
       // border: 0.05in solid #C0D0F0;
       // border: 0.03in solid rgb(255,255,255,0.95); // #C0D0F0;
@@ -905,7 +899,7 @@ td {
    }
 
 .hxFloatContainer {
-   display: flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; align-items:stretch;
+   display:flex; flex-direction:row; flex-wrap:wrap; flex-align-text:center; align-items:stretch;
    border: 0.04in solid Green; // #788CAD;
    // background-color: Orange; // #8888ff;
    background-color: rgba(255,255,255,0.95);
@@ -917,7 +911,7 @@ td {
    // padding: 0.25in;
    // border-radius:0.25in;
    margin:0in;
-   box-shadow: 
+   box-shadow:
       0.08in 0.08in 0.05in rgba(16,16,16,0.75),
       0in 0in       0.05in rgba(127,127,127,0.99) inset,
       0.08in 0.08in 0.12in rgba(255,255,255,0.25) inset,
@@ -954,18 +948,18 @@ article {
    }
 
 //article {
-//   // flex: 1 200px; 
+//   // flex: 1 200px;
 //   }
 
 /*
    article:nth-of-type(3) {
      flex: 3 200px;
-     display: flex;
+     display:flex;
      flex-flow: column;
    }
    article:nth-of-type(3) div:first-child {
       flex: 1 100px;
-      display: flex;
+      display:flex;
       flex-flow: row wrap;
       align-items: center;
       justify-content: space-around;
@@ -973,7 +967,7 @@ article {
 
 
 /* To simplify CSS, comment these in */
-/*  
+/*
 header {background: White; background-image: none;}
 section {background-color: White; box-shadow: none; text-shadow: none;}
 button {
@@ -985,11 +979,11 @@ button {
    background-image: none;
    }
 .hxTransparentButton {}
-*/ 
+*/
 
 /* *** REWRITE *************************************************************************************************** */
 hxSection, .hxSection {
-   display: flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; // align-items:stretch;
+   display:flex; flex-direction:row; flex-wrap:wrap; flex:20%; flex-align-text:center; // align-items:stretch;
    background-color: LightGray;
    color: Black;
    padding: 0.050in;
@@ -1010,16 +1004,16 @@ hxLogo, .hxLogo {
    padding: 0.10in;
    margin: 0.05in;
    width: auto;
-   border: 0.020in solid Gray; 
+   border: 0.020in solid Gray;
    border-radius:0.07in;
-   font-weight: bolder; 
+   font-weight: bolder;
    text-align: center;
    box-shadow: 0.006in 0.010in 0.010in Black,
                -.006in -.010in 0.010in White,
                0in 0in         0.060in Black inset,
                0in 0in         0.120in LightBlue inset;
-               
-   text-shadow: 
+
+   text-shadow:
       0.008in 0.008in 0.014in Black,
       -.008in -.008in 0.014in White,
       0in 0in 0.018in LightBlue,
@@ -1038,7 +1032,7 @@ hxCheckBoxItself, .hxCheckBoxItself {
    }
 
 hxCardBox, .hxCardBox {
-   display: flex; flex-wrap:wrap; flex-flow:column wrap; align-items:stretch; flex-direction:row;
+   display:flex; flex-wrap:wrap; flex-flow:column wrap; align-items:stretch; flex-direction:row;
    background-color: rgba(255,255,255,0.25);
    border: thin solid rgba(0,0,0,0.50);
    border-radius: 0.05in;
@@ -1050,7 +1044,7 @@ hxCardBox, .hxCardBox {
    margin: 0.05in;
    width: auto;
    border-radius:0.07in;
-   font-weight: bolder; 
+   font-weight: bolder;
    text-align: center;
    text-shadow: 0.03in 0.03in 0.03in rgba(0, 0, 0, 0.8);
    box-shadow: 0.05in 0.05in 0.05in rgba(32,32,32,0.65);
@@ -1063,7 +1057,7 @@ hxCardBox:hover, .hxCardBox:hover  {
 hxCardPage, hxCardPage {
    min-width: 2in;
    text-align: left;
-   width: 2.0in; 
+   width: 2.0in;
    height: auto;
    font-size: 0.15in;
    font-weight: bolder;
@@ -1078,14 +1072,14 @@ hxCardPage, hxCardPage {
    text-shadow: none;
    // transition: 0.2s;
    }
-   // margin: 0.9in; padding: 0.9in; 
+   // margin: 0.9in; padding: 0.9in;
 hxCardPage:hover, .hxCardPage:hover {}
 
 hxLogoCard, .hxLogoCard {
    background-image:linear-gradient(to bottom, #95A8CA 0%, #15184A 100%);
    min-width: 2in;
    text-align: center;
-   width: 2.0in; 
+   width: 2.0in;
    // height: auto;
    height: 0.47in;
    font-weight: bolder;
@@ -1107,7 +1101,7 @@ hxLogoCard, .hxLogoCard {
                 0in 0in 0.118in White;
    overflowY: scroll;
    // transition: 0.2s;
-   
+
 /*
    background-image:linear-gradient(to bottom, #95A8CA 0%, #15184A 100%);
    color: LightBlue;
@@ -1115,16 +1109,16 @@ hxLogoCard, .hxLogoCard {
    padding: 0.10in;
    margin: 0.05in;
    width: auto;
-   border: 0.020in solid Gray; 
+   border: 0.020in solid Gray;
    border-radius:0.07in;
-   font-weight: bolder; 
+   font-weight: bolder;
    text-align: center;
    box-shadow: 0.006in 0.010in 0.010in Black,
                -.006in -.010in 0.010in White,
                0in 0in         0.060in Black inset,
                0in 0in         0.120in LightBlue inset;
-               
-   text-shadow: 
+
+   text-shadow:
       0.008in 0.008in 0.014in Black,
       -.008in -.008in 0.014in White,
       0in 0in 0.018in LightBlue,
@@ -1138,12 +1132,12 @@ hxLogoCard, .hxLogoCard {
 
 hxClearCardPage, .hxClearCardPage {
    text-align: left;
-   width: 2.0in; 
+   width: 2.0in;
    height: auto;
    font-size: 0.15in;
    font-weight: bolder;
    color: Black;
-   margin: 0.02in; // 0.02in; // 0.06in; 
+   margin: 0.02in; // 0.02in; // 0.06in;
    padding: 0.03in;
    border: thin solid rgba(0,0,0,0.50);
    border-radius: 0.05in;
@@ -1164,7 +1158,7 @@ hxCardWide, .hxCardWide {
    text-align: left;
    border: 0.02in solid rgba(0,0,0,0.50);
    color: Black;
-   margin: 0.02in; // 0.02in; // 0.06in; 
+   margin: 0.02in; // 0.02in; // 0.06in;
    padding: 0.03in;
    border-radius: 0.05in;
    height: auto;
@@ -1204,7 +1198,7 @@ hxCardText, .hxCardText {
    box-shadow: none;
    }
 
-hxClearCardButton, .hxClearCardButton {
+hxInsetCardButton, .hxInsetCardButton {
    transition 0.2s;
    background-color: transparent;
    border: 0.03in solid transparent;
@@ -1213,13 +1207,13 @@ hxClearCardButton, .hxClearCardButton {
    display: block;
    border-radius: 0.06in;
    margin: 0.04in;;  // margin-bottom: 0.20in; // Card Button
-   padding: 0.035in;; 
+   padding: 0.035in;;
    font-variant:normal;
    text-align:center;
    box-shadow: none; // 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
    text-shadow: none;
    }
-hxClearCardButton:hover, .hxClearCardButton:hover {}
+hxInsetCardButton:hover, .hxInsetCardButton:hover {}
 
 hxGreenCardButton, .hxGreenCardButton {
    padding: 0.07in;
@@ -1285,6 +1279,7 @@ hxRedCardButton:hover, .hxRedCardButton:hover {
    }
 
 hxGrayCardButton, .hxGrayCardButton {
+   // background-image:url("./Images/BG_White_Boxes.bmp");
    padding: 0.07in;
    background-color: rgb(148,148,148);
    border: none;
@@ -1304,14 +1299,52 @@ hxGrayCardButton:hover, .hxGrayCardButton:hover {
    color: Black;
    transition 0.2s;
    }
+hxWhiteCardButton, .hxWhiteCardButton {
+   // background-image:url("./Images/BG_White_Boxes.bmp");
+   padding: 0.07in;
+   background-color: rgb(240,240,240);
+   border: none;
+   color: Black;
+   display: block;
+   text-align:center;
+   box-shadow: 0.025in 0.025in 0.075in rgba(0,0,0,0.95);
+   font-size: 0.15in;
+   border-radius: 0.04in; // 0.06in;
+   text-shadow: none;
+   font-variant:normal;
+   margin: 0.04in;;
+   transition 0.2s;
+   }
+hxWhiteCardButton:hover, .hxWhiteCardButton:hover {
+   background-color: White;
+   color: Black;
+   transition 0.2s;
+   }
+
+hxInsetCardButton, .hxInsetCardButton {
+   padding: 0.07in;
+   background-color: rgba(127,127,127, 0.20);
+   // border: none;
+   border: rgba(127,127,127,0.90); // 1px solid Black;
+   color: Black;
+   display: block;
+   text-align:center;
+   box-shadow: 0.01in 0.01in 0.050in rgba(0,0,0,0.85) inset;
+   font-size: 0.15in;
+   border-radius: 0.04in; // 0.06in;
+   text-shadow: none;
+   font-variant:normal;
+   margin: 0.04in;;
+   }
+hxInsetCardButton:hover, .hxInsetCardButton:hover {}
 
 hxCopyrightText, .hxCopyrightText {
-   // display: flex; flex-direction:row; flex-wrap:wrap; align-items:stretch;
+   // display:flex; flex-direction:row; flex-wrap:wrap; align-items:stretch;
    color: Black;
    background-color: transparent;
    font-size:0.20in; color:Black;
    font-weight: normal;
-   margin:0in; 
+   margin:0in;
    padding: 0.2in;
    font-variant:normal;
    text-align:center;
@@ -1322,23 +1355,23 @@ hxCopyrightText, .hxCopyrightText {
 MsgBox_Outside {
    background-color: White;
    border: 0.03in solid Black;
-   // background-image: linear-gradient(to right, #66a80f, #c0eb75); 
+   // background-image: linear-gradient(to right, #66a80f, #c0eb75);
    color: Black;
    min-width: 3in;
    width: 3in;
    font-weight: bolder;
    font-size: 0.15in;
-   margin:0.15in; 
-   padding: 0.2in 0.2in 0.2in; // 16px 8px 8px; 
+   margin:0.15in;
+   padding: 0.2in 0.2in 0.2in; // 16px 8px 8px;
    font-variant:normal;
    text-align:center;
    border-radius: 0.06in;
    display: block;
-   position: absolute; 
-   left: 50%; 
-   margin-left: -160px; 
-   background-size:cover; 
-   box-sizing: border-box; 
+   position: absolute;
+   left: 50%;
+   margin-left: -160px;
+   background-size:cover;
+   box-sizing: border-box;
    }
 
 .MsgBox_Prompt {
@@ -1450,16 +1483,144 @@ MsgBox_Outside {
 }
 
 hxLinkButton, .hxLinkButton {
-   width: 2.4in; 
-   height:auto; 
-   padding: 0.03in; 
+   width: 2.4in;
+   height:auto;
+   padding: 0.03in;
    margin: 0.03in; margin-top: 0.05in; margin-bottom: 0.05in;
-   font-size: 0.14in; 
+// font-size: 0.14in;
    text-shadow: none;
-   text-align: left; 
-   text-align: left; 
-   font-weight: boldest; 
+   text-align: left;
+   text-align: left;
+   font-weight: boldest;
    box-shadow: 0in    0in    0.02in rgba(0, 0, 0, 0.95),
                0.01in 0.01in 0.03in rgba(0, 0, 0, 0.95);
    border: 0.02in solid Gray; //test//prod
    }
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+.hxFilterButton {
+   width: auto; height: auto;
+   font-size: 0.18in;
+   font-weight: bold;
+   background-color: rgba(234,226,209,0.75);
+   color: Black;
+   border: 0.02in solid Gray;
+   margin: 0.01in; margin-left: 0in; margin-right: 0.02in; margin-top: 0.04in; margin-bottom: 0.04in;
+   padding: 0.02in;
+   border-radius:0.05in;
+   text-align:center;
+   background-image:linear-gradient(to bottom, rgba(64,64,255,1.00) 0%, rgb(128,128,255,0.50) 50%, rgba(64,64,255,1.00) 100%);
+   }
+
+/// Lighten/Darken colors
+/*
+.button {color: #ff0000;}
+/* note: 100% is baseline so 85% is slightly darker,
+   20% would be significantly darker */
+.button:hover {
+  filter: brightness(85%);
+}
+*/
+
+.FlexContainer {
+   display: -webkit-flex;
+   display: -moz-flex;
+   display:flex;
+   -webkit-flex-flow: row wrap;
+   -moz-flex-flow: row wrap;
+   flex-flow: row wrap;
+}
+
+.FlexItem {
+   -webkit-flex: 1 auto;
+   -moz-flex: 1 auto;
+   flex: 1 auto;
+   align-self: auto;
+}
+
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+Recent_Bubble, .Recent_Bubble {
+   flex-wrap: wrap;
+   flex-direction:row;
+   flex-flow:row wrap;
+
+   background: #ddddff; // Green;
+   color: Black;
+
+   //margin:1px; // margin-left: 5px; margin-bottom: 0px; margin-top:0px;
+   //margin-top:0px; margin-top: 0.04in; margin-left: 0in;
+   margin: 0in;
+
+   width:auto; // 9em;
+   height: auto; // 2.5em;
+   padding:0.04in;
+   // border: none;
+   // border-radius:7px;
+   // box-shadow:2px 2px 2px rgba(15, 11, 15, 0.7);
+
+ /*
+   // display:flex; flex:0; align-items:left;
+
+   font-family: "Cambri";
+   text-align:center;
+   background-color: rgb(238,234,208);
+   padding: 0.04in;
+   color: Black; font-weight:bold;
+   width: auto;
+   margin: 0.02in;
+   border-radius:7px;
+   height:auto; // 2.5em;
+   box-shadow: 2px 2px 2px rgba(15, 11, 15, 0.7);
+*/
+   }
+
+ {
+.Medium_Button {
+/*
+ border: none;
+   flex-wrap: wrap;
+   background-color: Green;
+   font-family: "Cambri";
+   text-align:center;
+   background-color: rgb(238,234,208);
+   padding: 0.04in;
+   color: Black; font-weight:bold;
+   width: auto;
+   margin: 0.02in;
+   border-radius:7px;
+   flex-direction:row;
+   flex-flow:row wrap;
+   height:auto; // 2.5em;
+   box-shadow: 2px 2px 2px rgba(15, 11, 15, 0.7);
+*/
+ }

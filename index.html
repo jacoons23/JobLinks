@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" id="ignore">
 
 <script>g_HTML_FileName = "index.html";</script>
@@ -10,154 +11,246 @@
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" media="screen" href="./index.css">
    <link rel="shortcut icon" href="./favicon.ico">
-   <link rel='prefetch' href="./favicon.ico">
+   <script src="./z_Favorites.js" defer></script>
    <script src="./index.js" defer></script>
+   <script src="./download.js" defer></script>
    <title>JobLinks: JobLinks Search System</title>
 </head>
 
-<body onclick="Click_Master(event)" id="ignore">
+<body onclick="Click_Master(event)" id="ignore"
+   style="background-image:url('./Images/BG_White_Boxes.bmp');")
+   >
 
-   <hidden> random comment </hidden>
+<hidden>
+   Id List //id// ***********************************************************************************************
+      Label             References
+      ----------------- -----------------------------------------------------------------------------------------
+      Logo              Click_Logo, Click_Logo
+      Options           View_Options, Options_Section
+      View Notes        View_Notes
 
-   <!-- *** Id List //id// *********************************************************************************************** -->
-   <!-- ***    Label             References                                                                                -->
-   <!-- ***    ----------------- ----------------------------------------------------------------------------------------- -->
-   <!-- ***    Logo              Click_Logo, Click_Logo                                                                    -->
-   <!-- ***    Options           View_Options, Options_Section                                                             -->
-   <!-- ***    View Notes        View_Notes                                                                                -->
-   <!-- ***                                                                                                                -->
-   <!-- ***    //Actions//Actions_Section// ****************************************************************************** -->
-   <!-- ***    //Companies_Section//         //Click_Companies_Button//    //Select_Companies//                            -->
-   <!-- ***       //Inject_Companies_List//  //Inject_Companies_Links//                                                    -->
-   <!-- ***    //Roles_Section//             //Click_Roles_Button//                                                        -->
-   <!-- ***       //Inject_Roles_List//      //Inject_Roles_Links//                                                        -->
-   <!-- ***    //Industries_Section//        //Click_Industries_Button//   //Industries_Section//                          -->
-   <!-- ***       //Inject_Industries_List// //Inject_Industries_Links//                                                   -->
-   <!-- ***    //Tools_Section//             //Click_Tools_Button//        //Tools_Section//                               -->
-   <!-- ***       //Inject_Tools_List//      //Inject_Tools_Text//                                                         -->
-   <!-- ***    //Portfolio_Section//         //Click_Portfolio_Button//    //Portfolio_Section//                           -->
-   <!-- ***       //Inject_Portfolio_List//  //Inject_Portfolio_Text//                                                     -->
-   <!-- ***    //Project_Section//           //Click_Projects_Button//      //Project_Section//                             -->
-   <!-- ***       //Inject_Project_List//    //Inject_Projects_Text//                                                       -->
-   <!-- ***    //Help_Section//              //Click_Help_Button//         //Help_Section//                                -->
-   <!-- ***    Click_Logo              ?                                                                                   -->
+   //Actions//Actions_Section// ******************************************************************************
+   //Companies_Section//            //Click_Companies_Button//    //Inject_Companies_List//     //Inject_Companies_Links//
+   //Roles_Section//                //Click_Roles_Button//        //Inject_Roles_List//         //Inject_Roles_Links//
+   //Industries_Section//           //Click_Industries_Button//   //Inject_Industries_List//    //Inject_Industries_Links//
+   //Personal_Section//             //Click_Personal_Button//     //Inject_Personal_List//      //Inject_Personal_Links//
+   //Tools_Section//                //Click_Tools_Button//        //Inject_Tools_List//         //Inject_Tools_Text//
+   //Favorites_Section//            //Click_Favorites_Button//    //Inject_Favorites_List//     //Inject_Favorites_Links//
+   //Portfolio_Section//            //Click_Portfolio_Button//    //Inject_Portfolio_List//     //Inject_Portfolio_Text//
+   //Programs_Section//             //Click_Programs_Button//     //Inject_Programs_List//      //Inject_Programs_Text//
+   //Writing_Section//              //Click_Writing_Button//      //Inject_Writing_List//       //Inject_Writing_Text//
+   //Help_Section//                 //Click_Help_Button//
+   Click_Logo              ?
+
+TEXT BOXES
+   id="Enter_Custom_Role"
+   id="Enter_Custom_Company"
+   id="Enter_Custom_Industry"
+</hidden>
+
    <!-- *** Id List //id// *********************************************************************************************** -->
    <hxCardBox>
       <hxLogoCard>JobLinks</hxLogoCard>
-      <hxCardPage style="width:2.5in;">
-         <hxGrayCardButton style="text-align:left">
+      <hxCardPage style="width:3.25in;">
+         <hxGrayCardButton class="hx3D" style="text-align:left">
             <input autocomplete="off" id="View_Options" type="checkbox" class="hxCheckBoxItself">
                Options
          </hxGrayCardButton>
          <hxCardText class="hidden" id="Options_Section">
-            <hidden>
-               <div class="hxCheckBox">
-                  <input autocomplete="off" id="View_Notes" type="checkbox" class="hxCheckBoxItself">
-                  <label>View Notes</label>
-               </div>
-            </hidden>
-
             <div class="hxCheckBox">
-               <input autocomplete="off" id="View_All" type="checkbox" class="hxCheckBoxItself">
+               <input autocomplete="off" id="View_All_Sections" type="checkbox" class="hxCheckBoxItself">
                <label>View All</label>
             </div>
             <br>
-            
+
             <!-- *** Lines Per Page Control //Lines_Per_Pages_Control// **************************** -->
-            <span id="Page_Size_Section">
-               <label style="display:inline">Pg Size: </label>
-               <button class="hx3D inline" style="font-size:0.1in; padding: 0.02in;" onclick="Shared_ResetPageSize(10)">10</button>
-               <button class="hx3D inline" style="font-size:0.1in; padding: 0.02in;" onclick="Shared_ResetPageSize(15)">15</button>
-               <button class="hx3D inline" style="font-size:0.1in; padding: 0.02in;" onclick="Shared_ResetPageSize(20)">20</button>
-               <button class="hx3D inline" style="font-size:0.1in; padding: 0.02in;" onclick="Shared_ResetPageSize(25)">25</button>
-               <button class="hx3D inline" style="font-size:0.1in; padding: 0.02in;" onclick="Shared_ResetPageSize(30)">30</button>
-               <button class="hx3D inline" style="font-size:0.1in; padding: 0.02in;" onclick="Shared_ResetPageSize(40)">40</button>
+            <span id="ListSize_Section">
+               <label style="display:inline">List Size: </label>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(10)">10</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(15)">15</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(20)">20</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(25)">25</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(30)">30</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(35)">35</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(40)">40</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(45)">45</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetListSize(50)">50</button>
             </span>
+
+<hidden>
+            <!-- *** Items in Recent List //Enter_Recent_Items// **************************** -->
+            <span id="RecentItems_Section">
+               <label style="display:inline">Recent Items: </label>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems( 5)"> 5</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems( 8)"> 8</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems(10)">10</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems(15)">15</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems(16)">16</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems(20)">20</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems(24)">24</button>
+               <button class="inline" style="font-size:0.1in; padding: 0.02in;" onclick="SharedSetRecentItems(32)">32</button>
+            </span>
+
+            <!-- *** Items in Recent List //Enter_Recent_Items// **************************** -->
+            <br># of Recent Items:&nbsp;
+            <input class="Select_Text:" type="text" style="width: calc(100% - 2in)"
+               title="Enter # of Recent Items (4 to 50)"
+               id="Enter_Recent_Items"
+               onChange="Click_Master(event)"
+               placeholder=""
+            >
+
+            <form>
+              <label for="ListSize">List Size (between 10 and 50):</label>
+              <input type="range" id="ListSize" name="ListSize" min="10" max="50">
+            </form>
+
+            <form>
+              <label for="RecentSize" onclick="SharedSetRecentItems(5)">Recent Items (between 4 and 50):</label>
+              <input type="range" id="RecentSize" name="RecentSize" min="4" max="50">
+            </form>
+
+            <label for="RecentItems" onclick="SharedSetRecentItems()"># of Recent Items (4-50):</label>
+            <input type="number" id="RecentItems" name="RecentItems" min="4" max="50">
+
+</hidden>
 
          </hxCardText>
       </hxCardPage>
    </hxCardBox>
-      
-   <!-- *** Actions Section //Actions//Actions_Section// *************************************************************** -->
+
+   <!-- *** Actions Section //Actions//Actions_Section// ********************************************** -->
    <hxCardBox>
-      <!-- *** //Click_Companies_Button//Companies_Card//Select_Companies// ******************************************** -->
-      <hxGreenCardButton id="Click_Companies_Button">Select Companies</hxGreenCardButton>
-      <!-- *** //Click_Roles_Button//Roles_Card//Select_Roles// ******************************************************** -->
-      <hxGreenCardButton id="Click_Roles_Button">Select Roles</hxGreenCardButton>
-      <!-- *** //Click_Industries_Button//Industries_Card//Click_Industries_Button// *********************************** -->
-      <hxGreenCardButton id="Click_Industries_Button">Select Industries</hxGreenCardButton>
-      <!-- *** //Click_Tools_Button//Click_View_Tools//View_Tools// **************************************************** -->
-      <hxGreenCardButton id="Click_Tools_Button">Tools</hxGreenCardButton>
-      <!-- *** //Click_Portfolio_Button//Click_Portfolio_Button//View_Portfolio// ************************************** -->
-      <hxGreenCardButton id="Click_Portfolio_Button">Portfolio</hxGreenCardButton>
-      <!-- *** //Click_Projects_Button//Click_Projects_Button//View_Project// ****************************************** -->
-      <hxGreenCardButton id="Click_Projects_Button">Projects</hxGreenCardButton>
-      <!-- *** //Click_Help_Button//Click_Help_Button// **************************************************************** -->
-      <hxBlueCardButton id="Click_Help_Button">Help</hxBlueCardButton>
+
+      <hxCardBox>
+         <hxInsetCardButton><hxCardText><b>Search</b></hxCardText></hxInsetCardButton>
+         <!-- *** //Click_Companies_Button//Companies_Card//Select_Companies// ************************ -->
+         <hxGreenCardButton id="Click_Companies_Button">Select Companies</hxGreenCardButton>
+         <!-- *** //Click_Roles_Button//Roles_Card//Select_Roles// ************************************ -->
+         <hxGreenCardButton id="Click_Roles_Button">Select Roles</hxGreenCardButton>
+         <!-- *** //Click_Industries_Button//Industries_Card//Click_Industries_Button// *************** -->
+         <hxGreenCardButton id="Click_Industries_Button">Select Industries</hxGreenCardButton>
+         <!-- *** //Click_Personal_Button//Personal_Card//Click_Personal_Button// *************** -->
+         <hxGreenCardButton id="Click_Personal_Button">Select Personal</hxGreenCardButton>
+      </hxCardBox>
+
+      <hxCardBox>
+         <hxInsetCardButton><hxCardText><b>Portfolio</b></hxCardText></hxInsetCardButton>
+         <!-- *** //Click_Portfolio_Button//Click_Portfolio_Button//View_Portfolio// ****************** -->
+         <hxGreenCardButton id="Click_Portfolio_Button">Portfolio</hxGreenCardButton>
+         <!-- *** //Click_Programs_Button//Click_Programs_Button//View_Programs// ********************* -->
+         <hxGreenCardButton id="Click_Programs_Button">Programs</hxGreenCardButton>
+         <!-- *** //Click_Writing_Button//Click_Writing_Button//View_Writing// ************************ -->
+         <hxGreenCardButton id="Click_Writing_Button">Writing</hxGreenCardButton>
+      </hxCardBox>
+
+      <hxCardBox>
+         <!-- *** //Click_Tools_Button//Click_View_Tools//View_Tools// ******************************** -->
+         <hxGreenCardButton id="Click_Tools_Button">Tools</hxGreenCardButton>
+         <!-- *** //Click_Favorites_Button//Favorites_Card//Select_Favorites// ************************ -->
+         <hxGreenCardButton id="Click_Favorites_Button">Favorites</hxGreenCardButton>
+         <!-- *** //Click_Help_Button//Click_Help_Button// ******************************************** -->
+         <hxBlueCardButton id="Click_Help_Button">Help</hxBlueCardButton>
+      </hxCardBox>
+
+      <hidden>class="Select_Text:" why? </hidden>
+<hidden>
+      <hxCardPage style="width:100%">
+         <span style="width:2in">Preferred Location</span>
+         <span>
+            <input type="text" style="width: auto;" id="Text_Location" onChange="Click_Master(event)"
+               placeholder="Enter Preferred Location"
+            >
+         </span>
+         <br>
+         <span style="width:2in">Preferred Role</span>
+         <span>
+            <input type="text" style="width: auto;" id="Text_Role" onChange="Click_Master(event)"
+               placeholder="Enter Preferred Role"
+            >
+         </span>
+      </hxCardPage>
+</hidden>
+
    </hxCardBox>
+
+
 
    <!-- *** //Companies_Section//Companies//Companies_List// *********************************************************** -->
    <div id="Companies_Section">
       <hxCardBox>
-         <hxCardPage style="width:49%; min-width:2in;">
-            <!-- *** Companies_List Controls *************************************************************************** -->
-            <hxCardHeading>Company List</hxCardHeading><br>
-            <hr>
+         <hxCardPage style="width:49%; min-width:2in;
+<hidden>
+            transform: perspective(10in) rotateX(10deg) rotateZ(1deg) scaleX(0.80) scaleY(0.85) translateY(-0.70in);
+</hidden>            
+            ">
+            <!-- *** Companies - Controls ************************************************************************* -->
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
-               <div class="hxProgressBar" id="Companies_Progress_Bar">&nbsp;
-                  <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Companies.FirstPage()"><b>&#x140A&#x140A;</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Companies.PrevPage() "><b>&#x140A;        </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Companies.NextPage() "><b>&#x1405;        </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Companies.LastPage() "><b>&#x1405&#x1405;</b></button>
-                  </div>&nbsp;
-                  <div class="inline" id="id_Companies_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
-                  <div class="inline" id="id_Companies_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
-               </div>
-
-               <span>
-                  <hxPagingList 
-                     style="width: 2in; min-width:0.5in; margin-left: 0.2in; margin-bottom: 0in; border-bottom: 0.04in dashed black"
-                  >
-                     <span 
-                        id="";>
-                        Custom Company
-                     </span>
-                     <span>
-                        <input class="&#x1405; Select_Text: &nbsp;" type="text" style="width: calc(100% - 2in);"
-                           id="Enter_Custom_Companies" 
-                           onChange="Click_Master(event)"
-                           placeholder="Enter a Custom Company Name and press [Enter] ..."
-                        >
-                     </span>
-                  </hxPagingList>
-               </span>
-
-               <div id="Inject_Companies_List"></div>
+            <!-- *** Companies - "Company List" Heading *********************************************************** -->
+            <hxCardHeading>Company List</hxCardHeading>
+            <!-- *** Companies - "Company List" Count ************************************************************* -->
+            <div class="inline" id="Inject_Companies_Count" 
+               style="font-weight: bold; color: Black; font-size:0.17in; padding: 0in">(items)
+            </div>
+            <!-- *** Companies - "Enter Value" Control ************************************************************ -->
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x1405;&nbsp;Enter Value:&nbsp;
+            <input class="Select_Text:" type="text" style="width: calc(100% - 2in)"
+               title="Enter a Value not in the List"
+               id="Enter_Custom_Company"
+               onChange="Click_Master(event)"
+               placeholder="Enter Custom Company Name"
+            >
+            </span>
+            <!-- *** Companies - "ListBox" Control **************************************************************** -->
+            <select
+               id="Inject_Companies_List" title="Company List" id="Companies" 
+               name="Companies" size="30" width="100%"; height="auto";
+               style="width:100%; height:4in;">
+            </select>
             </div>
          </hxCardPage>
-         <!-- *** Inject_Companies_Links ****************************************************** -->
+         <!-- *** Companies - "Companies Link Heading" ************************************************************ -->
          <hxCardPage style="width:49%; min-width:2in;">
             <hxCardHeading id="Inject_Companies_Heading">Inject_Companies_Heading</hxCardHeading>
+            <div class="hxCheckBox" style="display:inline;">
+               <input autocomplete="off" id="Show_Companies_MRU" type="checkbox" class="hxCheckBoxItself">
+               <label>Recent</label>
+            </div>
             <hr>
+
+
+
+
+            <!-- *** Companies - "Companies MRU" (Most Recently Used List) **************************************** -->
+            <hxCardBox class="hidden" id="Recent_Companies_Section">
+               <button class="hxInsetCardButton">Recent Companies</button>
+               <button class="hxRedCardButton">No Companies Selected Yet</button>
+            </hxCardBox>
+
+            <!-- *** Companies - "Companies Splash" and "Companies Links" Sections ******************************** -->
             <div id="Inject_Companies_Links">
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                        This option permits the User to search for a job by Company.<br>
+                        The <keyword>Companies</keyword> Option searches for a job by Company. For instance, select "<keyword>ADP</keyword>" from the List. If a desired Company is not in the List, you can type in a custom value, such as "<keyword>ADP Payroll</keyword>". You can enter a more specific value than found in the List, such as "<keyword>ADP, Human Resources</keyword>". <br>
                         <ol>
-                           <li>The User selects a Company from the Company List or enters User-Defined Text.</li>
-                           <li>Individual Links appear as buttons for each website.</li>
-                           <li>Each website can be searched without manually opening and searching it. </li>
-                           <li>Click on a Link to open it in another Tab and go there immediately (default action).</li>
-                           <li>On the Generated Links section, move the mouse over the <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
-                               symbol to see the "before" and "after" versions of the Website Address. </li>
-                           <li>Right-Click on a Link and select "Open in another Tab" to open it in another Tab without going there.</li>
+                           <li>Click an item in the List or enter a value.</li>
+                           <li>Website Links appear for each website.</li>
+                           <li>Click a Link to open the website in another Tab and go there immediately (default action).</li>
+                           <li>Right-Click a Link and select "<keyword>Open Link in New Tab</keyword>" or "<keyword>Open Link in New Window</keyword>" (depending on your browser).</li>
+                           <li>Right-Click a Link and select "<keyword>Copy Link</keyword>" to save the Link for future reference (depending on your browser).</li>
+                           <li>Move the mouse over the
+                              <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
+                              symbol to see the "before" and "after" versions of the Website Address 
+                              (if you are curious or experiencing problems).
+                              At this point, the websites cannot be changed.
+                           </li>
                         </ol>
                      </hxCardText>
                   </hxCardPage>
+                  <!-- *** Companies - "Companies Splash Image" *************************************************** -->
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Companies_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Companies.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
@@ -170,7 +263,7 @@
       <!-- *** Select Companies Control //Select_Companies_Control// **************************** -->
       <div class="hxNotes" title="Immediate Search for Items containing &quot;text&quot;">
          <b>Search:&nbsp;</b>
-         <input class="Select_Text" type="text" id="Enter_Custom_Companies" onkeyup="dxSearchFunction()" 
+         <input class="Select_Text" type="text" id="Enter_Custom_Company" onkeyup="dxSearchFunction()"
             placeholder="Search Text ..."
          >
          <hxCardBox id="Test_Companies_List">
@@ -184,11 +277,11 @@
          </hxCardBox>
       </div>
 </hidden>
-         
+
 <hidden>
       <!-- *** Select Companies Control //Select_Companies_Control// **************************** -->
       <div id="id_Companies_Rolodex">(App Companies Rolodex Placeholder)</div>
-</hidden>         
+</hidden>
 
 <hidden>
    <!-- *** App/Companies Section //Companies// **************************************************** -->
@@ -200,69 +293,60 @@
    </template>
 </hidden>
 
+
+
    <!-- *** //Roles_Section//Roles//Roles_List// *********************************************************** -->
    <div id="Roles_Section">
       <hxCardBox>
          <hxCardPage style="width:49%; min-width:2in;">
             <!-- *** Roles_List Controls *************************************************************************** -->
-            <hxCardHeading>Role List</hxCardHeading><br>
-            <hr>
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
-               <div class="hxProgressBar" id="Roles_Progress_Bar">&nbsp;
-                  <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Roles.FirstPage()"><b>&#x140A&#x140A;</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Roles.PrevPage() "><b>&#x140A;        </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Roles.NextPage() "><b>&#x1405;        </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Roles.LastPage() "><b>&#x1405&#x1405;</b></button>
-                  </div>&nbsp;
-                  <div class="inline" id="id_Roles_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
-                  <div class="inline" id="id_Roles_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
-               </div>
+                
+            <hxCardHeading>Role List</hxCardHeading>
+               <div class="inline" id="id_Roles_Item_Count" style="font-weight: bold; color: Black; font-size:0.17in; padding: 0in">(items)</div>
+               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x1405;&nbsp;Enter Value:&nbsp;
+               <input class="Select_Text:" type="text" style="width: calc(100% - 2in);"
+                  title="Enter a Value not in the List"
+                  id="Enter_Custom_Role"
+                  onChange="Click_Master(event)"
+                  placeholder="Enter Custom Role Name"
+               >
+            </span>
 
-               <span>
-                  <hxPagingList 
-                     style="width: 2in; min-width:0.5in; margin-left: 0.2in; margin-bottom: 0in; border-bottom: 0.04in dashed black"
-                  >
-                     <span 
-                        id="";>
-                        Custom Role
-                     </span>
-                     <span>
-                        <input class="&#x1405; Select_Text: &nbsp;" type="text" style="width: calc(100% - 2in);"
-                           id="Enter_Custom_Roles" 
-                           onChange="Click_Master(event)"
-                           placeholder="Enter a Custom Role Name and press [Enter] ..."
-                        >
-                     </span>
-                  </hxPagingList>
-               </span>
+               <select
+                  id="Inject_Roles_List" title="Role List" id="Roles" name="Roles" size="30" width="100%"; height="auto";
+                  style="width:100%; height:4in;">
+               </select>
 
-               <div id="Inject_Roles_List">Inject_Roles_List</div>
             </div>
-
          </hxCardPage>
          <!-- *** Inject_Roles_Links ****************************************************** -->
          <hxCardPage style="width:49%; min-width:2in;">
             <hxCardHeading id="Inject_Roles_Heading">Inject_Roles_Heading</hxCardHeading>
             <hr>
+
             <div id="Inject_Roles_Links">
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                        This option permits the User to search for a job by Role.<br>
+                        The <keyword>Roles</keyword> Option searches for a job by Role. For instance, select "<keyword>Data Analyst</keyword>" from the List. If a desired Role is not in the List, you can type in a custom value, such as "<keyword>Data Security</keyword>". You can enter a more specific value than found in the List, such as "<keyword>Data Analyst, JavaScript</keyword>". <br>
                         <ol>
-                           <li>The User selects a Role from the Role List or enters User-Defined Text.</li>
-                           <li>Individual Links appear as buttons for each website.</li>
-                           <li>Each website can be searched without manually opening and searching it. </li>
-                           <li>Click on a Link to open it in another Tab and go there immediately (default action).</li>
-                           <li>On the Generated Links section, move the mouse over the <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
-                               symbol to see the "before" and "after" versions of the Website Address. </li>
-                           <li>Right-Click on a Link and select "Open in another Tab" to open it in another Tab without going there.</li>
+                           <li>Click an item in the List or enter a value.</li>
+                           <li>Website Links appear for each website.</li>
+                           <li>Click a Link to open the website in another Tab and go there immediately (default action).</li>
+                           <li>Right-Click a Link and select "<keyword>Open Link in New Tab</keyword>" or "<keyword>Open Link in New Window</keyword>" (depending on your browser).</li>
+                           <li>Right-Click a Link and select "<keyword>Copy Link</keyword>" to save the Link for future reference (depending on your browser).</li>
+                           <li>Move the mouse over the
+                              <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
+                              symbol to see the "before" and "after" versions of the Website Address 
+                              (if you are curious or experiencing problems).
+                              At this point, the websites cannot be changed.
+                           </li>
                         </ol>
                      </hxCardText>
                   </hxCardPage>
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Roles_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Roles.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
@@ -271,68 +355,61 @@
    </div>
    <!-- *** End of //Roles_Section//Roles// ********************************************** -->
 
+
+
+
    <!-- *** //Industries_Section//Industries//Industries_List// *********************************************************** -->
    <div id="Industries_Section">
       <hxCardBox>
          <hxCardPage style="width:49%; min-width:2in;">
             <!-- *** Industries_List Controls *************************************************************************** -->
-            <hxCardHeading>Industry List</hxCardHeading><br>
-            <hr>
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
-               <div class="hxProgressBar" id="Industries_Progress_Bar">&nbsp;
-                  <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Industries.FirstPage()"><b>&#x140A&#x140A;</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Industries.PrevPage() "><b>&#x140A;        </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Industries.NextPage() "><b>&#x1405;        </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Industries.LastPage() "><b>&#x1405&#x1405;</b></button>
-                  </div>&nbsp;
-                  <div class="inline" id="id_Industries_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
-                  <div class="inline" id="id_Industries_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
-               </div>
+                
+            <hxCardHeading>Industry List</hxCardHeading>
+               <div class="inline" id="id_Industries_Item_Count" style="font-weight: bold; color: Black; font-size:0.17in; padding: 0in">(items)</div>
+               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x1405;&nbsp;Enter Value:&nbsp;
+               <input class="Select_Text:" type="text" style="width: calc(100% - 2in);"
+                  title="Enter a Value not in the List"
+                  id="Enter_Custom_Industry"
+                  onChange="Click_Master(event)"
+                  placeholder="Enter Custom Industry Name"
+               >
+            </span>
 
-               <span>
-                  <hxPagingList 
-                     style="width: 2in; min-width:0.5in; margin-left: 0.2in; margin-bottom: 0in; border-bottom: 0.04in dashed black"
-                  >
-                     <span 
-                        id="";>
-                        Custom Industry
-                     </span>
-                     <span>
-                        <input class="&#x1405; Select_Text: &nbsp;" type="text" style="width: calc(100% - 2in);"
-                           id="Enter_Custom_Industries" 
-                           onChange="Click_Master(event)"
-                           placeholder="Enter a Custom Industry Name and press [Enter] ..."
-                        >
-                     </span>
-                  </hxPagingList>
-               </span>
-            
-               <div id="Inject_Industries_List">Inject_Industries_List</div>
+               <select
+                  id="Inject_Industries_List" title="Industry List" id="Industries" name="Industries" size="30" width="100%"; height="auto";
+                  style="width:100%; height:4in;">
+               </select>
+
             </div>
          </hxCardPage>
-         <!-- *** Generated_Industries_Links_Poke ****************************************************** -->
+         <!-- *** Inject_Industries_Links ****************************************************** -->
          <hxCardPage style="width:49%; min-width:2in;">
             <hxCardHeading id="Inject_Industries_Heading">Inject_Industries_Heading</hxCardHeading>
             <hr>
-            <div id="Generated_Industries_Links_Poke">
+
+            <div id="Inject_Industries_Links">
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                     This option permits the User to search for a job by Industry.<br>
+                     The <keyword>Industries</keyword> Option searches for a job by Industry. For instance, select "<keyword>Airline</keyword>" from the List. If a desired Role is not in the List, you can type in a custom value, such as "<keyword>Art Lessons</keyword>". You can enter a more specific value than found in the List, such as "<keyword>Airline Services</keyword>". <br>
                      <ol>
-                        <li>The User selects an Industry from the Industry List or enters User-Defined Text.</li>
-                        <li>Individual Links appear as buttons for each website. </li>
-                        <li>Each website can be searched without manually opening and searching it. </li>
-                        <li>Click on a Link to open it in another Tab and go there immediately (default action).</li>
-                        <li>On the Generated Links section, move the mouse over the <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
-                            symbol to see the "before" and "after" versions of the Website Address. </li>
-                        <li>Right-Click on a Link and select "Open in another Tab" to open it in another Tab without going there.</li>
+                        <li>Click an item in the List or enter a value.</li>
+                        <li>Website Links appear for each website.</li>
+                        <li>Click a Link to open the website in another Tab and go there immediately (default action).</li>
+                        <li>Right-Click a Link and select "<keyword>Open Link in New Tab</keyword>" or "<keyword>Open Link in New Window</keyword>" (depending on your browser).</li>
+                        <li>Right-Click a Link and select "<keyword>Copy Link</keyword>" to save the Link for future reference (depending on your browser).</li>
+                        <li>Move the mouse over the
+                           <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
+                           symbol to see the "before" and "after" versions of the Website Address 
+                           (if you are curious or experiencing problems).
+                           At this point, the websites cannot be changed.
+                        </li>
                      </ol>
                      </hxCardText>
                   </hxCardPage>
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Industries_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Industries.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
@@ -340,6 +417,103 @@
       </hxCardBox>
    </div>
    <!-- *** End of //Industries_Section//Industries// ********************************************** -->
+
+<hidden>
+      <!-- *** Select Industries Control //Select_Industries_Control// **************************** -->
+      <div id="id_Industries_Rolodex">(App Industries Rolodex Placeholder)</div>
+</hidden>
+
+<hidden>
+   <!-- *** App/Industries Section //Industries// **************************************************** -->
+   <template id="Industries_Rolodex_Template">
+      <button class="hxButtonSmall hx3D inline"
+         onclick="Industries.Click_Rolodex(event)"
+         id="Industries_$i$">$i$
+      </button>
+   </template>
+</hidden>
+
+
+
+
+   <!-- *** //Personal_Section//Personal//Personal_List// *********************************************************** -->
+   <div id="Personal_Section">
+      <hxCardBox>
+         <hxCardPage style="width:49%; min-width:2in;">
+            <!-- *** Personal_List Controls *************************************************************************** -->
+            <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
+                
+            <hxCardHeading>Personal List</hxCardHeading>
+               <div class="inline" id="id_Personal_Item_Count" style="font-weight: bold; color: Black; font-size:0.17in; padding: 0in">(items)</div>
+               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x1405;&nbsp;Enter Value:&nbsp;
+               <input class="Select_Text:" type="text" style="width: calc(100% - 2in);"
+                  title="Enter a Value not in the List"
+                  id="Enter_Custom_Personal"
+                  onChange="Click_Master(event)"
+                  placeholder="Enter Custom Personal Name"
+               >
+            </span>
+
+               <select
+                  id="Inject_Personal_List" title="Personal List" id="Personal" name="Personal" size="30" width="100%"; height="auto";
+                  style="width:100%; height:4in;">
+               </select>
+
+            </div>
+         </hxCardPage>
+         <!-- *** Inject_Personal_Links ****************************************************** -->
+         <hxCardPage style="width:49%; min-width:2in;">
+            <hxCardHeading id="Inject_Personal_Heading">Inject_Personal_Heading</hxCardHeading>
+            <hr>
+
+            <div id="Inject_Personal_Links">
+               <hxCardBox>
+                  <hxCardPage style="width: 48%">
+                     <hxCardText>
+                     The <keyword>Personal</keyword> Option searches for a job by Company Name, Role, Industry, Skills or anything else you can imagine. For instance, select an entry directly from the List (if available). If a desired value is not in the List, you can type in a custom value, such as "<keyword>Work At Home</keyword>". Be creative! There are no limitations on what you can enter here, except for size limitations or word limitations imposed by the individual websites.<br>
+                     <ol>
+                        <li>Select an entry from the List or enter a value.</li>
+                        <li>Website Links appear for each website.</li>
+                        <li>Click a Link to open the website in another Tab and go there immediately (default action).</li>
+                        <li>Right-Click a Link and select "<keyword>Open Link in New Tab</keyword>" or "<keyword>Open Link in New Window</keyword>" (depending on your browser).</li>
+                        <li>Right-Click a Link and select "<keyword>Copy Link</keyword>" to save the Link for future reference (depending on your browser).</li>
+                        <li>Move the mouse over the
+                           <span><img src="./Images/Info_Small.bmp" width=18px; height=18px></span>
+                           symbol to see the "before" and "after" versions of the Website Address 
+                           (if you are curious or experiencing problems).
+                           At this point, the websites cannot be changed.
+                        </li>
+                     </ol>
+                     </hxCardText>
+                  </hxCardPage>
+                  <hxCardPage style="width: 48%">
+                      <img src="./Files/Splash_Personal.jpg" width=100%; height=auto;>
+                  </hxCardPage>
+               </hxCardBox>
+            </div>
+         </hxCardPage>
+      </hxCardBox>
+   </div>
+   <!-- *** End of //Personal_Section//Personal// ********************************************** -->
+
+<hidden>
+      <!-- *** Select Personal Control //Select_Personal_Control// **************************** -->
+      <div id="id_Personal_Rolodex">(App Personal Rolodex Placeholder)</div>
+</hidden>
+
+<hidden>
+   <!-- *** App/Personal Section //Personal// **************************************************** -->
+   <template id="Personal_Rolodex_Template">
+      <button class="hxButtonSmall hx3D inline"
+         onclick="Personal.Click_Rolodex(event)"
+         id="Personal_$i$">$i$
+      </button>
+   </template>
+</hidden>
+
+
+
+
 
    <!-- *** //Websites_Section//Websites//Websites_List// *********************************************************** -->
    <div id="Websites_Section" class="hidden">
@@ -350,10 +524,10 @@
             <hr>
             <div class="hxProgressBar" id="Websites_Progress_Bar">&nbsp;
                <div class="inline">
-                  <button class="hxButtonNav" title="First" onclick="Websites.FirstPage()"><b>&#x140A&#x140A</b></button>
-                  <button class="hxButtonNav" title="Prev"  onclick="Websites.PrevPage() "><b>&#x140A       </b></button>
-                  <button class="hxButtonNav" title="Next"  onclick="Websites.NextPage() "><b>&#x1405;       </b></button>
-                  <button class="hxButtonNav" title="Last"  onclick="Websites.LastPage() "><b>&#x1405&#x1405</b></button>
+                  <button class="hxButtonNav" title="First" onclick="Websites.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                  <button class="hxButtonNav" title="Prev"  onclick="Websites.PrevPage() "><b>&#x140A;        </b></button>
+                  <button class="hxButtonNav" title="Next"  onclick="Websites.NextPage() "><b>&#x1405;        </b></button>
+                  <button class="hxButtonNav" title="Last"  onclick="Websites.LastPage() "><b>&#x1405;&#x1405;</b></button>
                </div>&nbsp;
                <div class="inline" id="id_Websites_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
                <div class="inline" id="id_Websites_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
@@ -370,7 +544,7 @@
             <hr>
             <div id="Inject_Websites_Links">
                <hxCardText>
-                  View Help Topics. 
+                  View Help Topics.
                </hxCardText>
             </div>
          </hxCardPage>
@@ -399,10 +573,10 @@
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
                <div class="hxProgressBar" id="Tools_Progress_Bar">&nbsp;
                   <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Tools.FirstPage()"><b>&#x140A&#x140A</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Tools.PrevPage() "><b>&#x140A       </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Tools.NextPage() "><b>&#x1405;       </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Tools.LastPage() "><b>&#x1405&#x1405</b></button>
+                     <button class="hxButtonNav" title="First" onclick="Tools.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                     <button class="hxButtonNav" title="Prev"  onclick="Tools.PrevPage() "><b>&#x140A;        </b></button>
+                     <button class="hxButtonNav" title="Next"  onclick="Tools.NextPage() "><b>&#x1405;        </b></button>
+                     <button class="hxButtonNav" title="Last"  onclick="Tools.LastPage() "><b>&#x1405;&#x1405;</b></button>
                   </div>&nbsp;
                   <div class="inline" id="id_Tools_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
                   <div class="inline" id="id_Tools_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
@@ -420,16 +594,19 @@
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                        This option shows various Tools useful to the Developer. 
+                        The <keyword>Tools</keyword> option shows various Tools useful to the Developer.
                         <ol>
-                           <li>It shows the JobLinks Project History, which details the different main iterations the Project has experienced. </li>
-                           <li>It shows the JobLinks Project Change Log, which details some of the processes completed for the development and testing of the Project. </li>
-                           <li>It shows various CSS elements all in one place, which can be used to verify standardization and integrity of the CSS scripts. </li>
+                           <li>It shows the <keyword>JobLinks Project History</keyword>, which details the
+                               different main iterations the Project has experienced. </li>
+                           <li>It shows the <keyword>JobLinks Project Change Log</keyword>, which details
+                               some of the processes completed for the development and testing of the Project. </li>
+                           <li>It shows various CSS elements all in one place, which can be used to verify
+                               standardization and integrity of the CSS scripts. </li>
                         </ol>
                      </hxCardText>
                   </hxCardPage>
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Tools_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Tools.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
@@ -438,6 +615,75 @@
    </div>
    <!-- *** End of //Tools_Section//Tools// ********************************************** -->
 
+   <!-- *** //Favorites_Section//Favorites//Favorites_List// *********************************************************** -->
+   <div id="Favorites_Section">
+      <hxCardBox>
+         <hxCardPage style="width:100%; min-width:2in;">
+            <!-- *** Favorites_List Controls *************************************************************************** -->
+               <span>
+            <hxCardHeading>Favorites List</hxCardHeading>
+               &nbsp;&nbsp;
+                  <button class="hx3D" id="Favorites_Filter" style="display:inline; height: 0.3in; margin: 0in;"
+                     title="Filter Favorites (CONTAINS)">
+                     Filter
+                  </button>&nbsp;&nbsp;
+
+                  <div id="Favorites_Filter" style="display:inline; height: 0.3in; margin: 0in;">
+                     <b>Filter:<keyword><span style="border:none; background-color: transparent;" id="Inject_Favorites_Filter">Off</span></b></keyword>
+                  </div>&nbsp;&nbsp;
+
+                  <button class="hx3D" id="Reset_Favorites_Filter" style="display:inline; height: 0.3in; margin: 0in;"
+                     title="Reset Favorites Filter (Show All)">Reset
+                  </button>&nbsp;&nbsp;
+
+                  <div title="Toggle URL Filter" style="display:inline; height: 0.3in; margin: 0in;">
+                     <input autocomplete="off" id="Filter_Favorites_URL" type="checkbox" class="hxCheckBoxItself"
+                     title="Include URL in Filter/Search">
+                     <label>URL Filter</label>
+                  </div>&nbsp;
+
+                  <div title="Toggle Recent Searches" style="display:inline; height: 0.3in; margin: 0in;">
+                     <input autocomplete="off" id="Show_Recent_Favorites_Filters" type="checkbox" class="hxCheckBoxItself"
+                     title="Toggle Recent Searches List">
+                     <label>Recent Searches</label>
+                  </div>
+
+                  <div style="float:right">
+                     <button class="hx3D" id="Show_Favorites_Properties" style="display:inline; height: 0.3in; margin: 0in;"
+                        title="Show Properties of Favorites List">
+                        Properties</button>&nbsp;&nbsp;
+                        </button>
+                  </div>
+                  
+                  <button style="border:none; background-color: transparent;" class="hidden" id="Inject_Favorites_Status">*</button>
+               </span>
+               <div style="height:0.05in;"></div>
+               <div>
+                  <hxNotes id="Inject_Favorites_Properties" style="display:none;">
+                     Favorites Properties
+                  </hxNotes>
+                  <div style="height:0.05in;"></div>
+               </div>
+
+            <hr>
+            <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
+               <div class="hxProgressBar" id="Favorites_Progress_Bar">&nbsp;
+                  <div class="inline">
+                     <button class="hxButtonNav" title="First" onclick="Favorites.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                     <button class="hxButtonNav" title="Prev"  onclick="Favorites.PrevPage() "><b>&#x140A;        </b></button>
+                     <button class="hxButtonNav" title="Next"  onclick="Favorites.NextPage() "><b>&#x1405;        </b></button>
+                     <button class="hxButtonNav" title="Last"  onclick="Favorites.LastPage() "><b>&#x1405;&#x1405;</b></button>
+                  </div>&nbsp;
+                  <div class="inline" id="id_Favorites_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
+                  <div class="inline" id="id_Favorites_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
+               </div>
+               <hr>
+               <div id="Inject_Favorites_List"></div>
+            </div>
+         </hxCardPage>
+      </hxCardBox>
+   </div>
+   <!-- *** End of //Favorites_Section//Favorites// ********************************************** -->
 
    <!-- *** //Portfolio_Section//Portfolio//Portfolio_List// *********************************************************** -->
    <div id="Portfolio_Section">
@@ -449,10 +695,10 @@
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
                <div class="hxProgressBar" id="Portfolio_Progress_Bar">&nbsp;
                   <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Portfolio.FirstPage()"><b>&#x140A&#x140A</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Portfolio.PrevPage() "><b>&#x140A       </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Portfolio.NextPage() "><b>&#x1405;       </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Portfolio.LastPage() "><b>&#x1405&#x1405</b></button>
+                     <button class="hxButtonNav" title="First" onclick="Portfolio.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                     <button class="hxButtonNav" title="Prev"  onclick="Portfolio.PrevPage() "><b>&#x140A;        </b></button>
+                     <button class="hxButtonNav" title="Next"  onclick="Portfolio.NextPage() "><b>&#x1405;        </b></button>
+                     <button class="hxButtonNav" title="Last"  onclick="Portfolio.LastPage() "><b>&#x1405;&#x1405;</b></button>
                   </div>&nbsp;
                   <div class="inline" id="id_Portfolio_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
                   <div class="inline" id="id_Portfolio_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
@@ -470,17 +716,17 @@
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                        This option shows various Portfolio items of James Coons, including:
+                        The <keyword>Portfolio</keyword> option shows various Portfolio items of James Coons, including:
                         <ol>
-                           <li>Variations of my resume</li>
+                           <li>Resume variations</li>
                            <li>Sample work from different companies</li>
-                           <li>Case studies </li>
+                           <li>Case Studies </li>
                            <li>Other useful information.</li>
                         </ol>
                      </hxCardText>
                   </hxCardPage>
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Portfolio_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Portfolio.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
@@ -490,55 +736,111 @@
    <!-- *** End of //Portfolio_Section//Portfolio// ********************************************** -->
 
 
-   <!-- *** //Projects_Section//Projects//Projects_List// *********************************************************** -->
-   <div id="Projects_Section">
+   <!-- *** //Programs_Section//Programs//Programs_List// *********************************************************** -->
+   <div id="Programs_Section">
       <hxCardBox>
          <hxCardPage style="width:49%; min-width:2in;">
-            <!-- *** Projects_List Controls *************************************************************************** -->
-            <hxCardHeading>Projects</hxCardHeading><br>
+            <!-- *** Programs_List Controls *************************************************************************** -->
+            <hxCardHeading>Programs</hxCardHeading><br>
             <hr>
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
-               <div class="hxProgressBar" id="Projects_Progress_Bar">&nbsp;
+               <div class="hxProgressBar" id="Programs_Progress_Bar">&nbsp;
                   <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Projects.FirstPage()"><b>&#x140A&#x140A</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Projects.PrevPage() "><b>&#x140A       </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Projects.NextPage() "><b>&#x1405;       </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Projects.LastPage() "><b>&#x1405&#x1405</b></button>
+                     <button class="hxButtonNav" title="First" onclick="Programs.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                     <button class="hxButtonNav" title="Prev"  onclick="Programs.PrevPage() "><b>&#x140A;        </b></button>
+                     <button class="hxButtonNav" title="Next"  onclick="Programs.NextPage() "><b>&#x1405;        </b></button>
+                     <button class="hxButtonNav" title="Last"  onclick="Programs.LastPage() "><b>&#x1405;&#x1405;</b></button>
                   </div>&nbsp;
-                  <div class="inline" id="id_Projects_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
-                  <div class="inline" id="id_Projects_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
+                  <div class="inline" id="id_Programs_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
+                  <div class="inline" id="id_Programs_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
                </div>
-               <!-- *** Projects_List ************************************************************** -->
+               <!-- *** Programs_List ************************************************************** -->
                <hr>
-               <div id="Inject_Projects_List">Inject_Projects_List</div>
+               <div id="Inject_Programs_List">Inject_Programs_List</div>
             </div>
          </hxCardPage>
-         <!-- *** Inject_Projects_Text ****************************************************** -->
+         <!-- *** Inject_Programs_Text ****************************************************** -->
          <hxCardPage style="width:49%; min-width:2in;">
-            <hxCardHeading id="Inject_Projects_Heading">Inject_Projects_Heading</hxCardHeading><br>
+            <hxCardHeading id="Inject_Programs_Heading">Inject_Programs_Heading</hxCardHeading><br>
             <hr>
-            <div id="Inject_Projects_Text">
+            <div id="Inject_Programs_Text">
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                        This option shows various Projects of James Coons, including:
+                        The <keyword>Programs</keyword> option shows various Programming Projects of James Coons, including:
                         <ol>
-                           <li>Personal Research Projects.</li>
-                           <li>Personal Writing Projects.</li>
-                           <li>Personal Programming Projects.</li>
-                           <li>Other Projects.</li>
+                           <li><keyword>GraphToData</keyword> - App to convert data from a physical graph into actual data, written in Excel and VBA.</li>
+                           <li><keyword>JobEx</keyword> - Calendar System to help in Job Search, written in Excel and VBA.</li>
+                           <li><keyword>JobLinks</keyword> - Internet App to help in Job Search, written in JavaScript es7, HTML 5 and CSS 3.</li>
+                           <li><keyword>JobList</keyword> - Contact Management System, written in Excel and VBA.</li>
+                           <li><keyword>List_Compare</keyword> - List Comparison App, written in Excel and VBA.</li>
+                           <li><keyword>ProSpec</keyword> - ETL Mapping App, written in Access, VBA and SQL.</li>
+                           <li><keyword>Proviso</keyword> - Job Requirements Comparison App, written in Excel and VBA.</li>
+                        </ol>
+<hidden>
+                           <li>Personal Research Programs.</li>
+                           <li>Personal Writing Programs.</li>
+                           <li>Other Programs.</li>
+</hidden>
                         </ol>
                      </hxCardText>
                   </hxCardPage>
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Projects_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Programs.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
          </hxCardPage>
       </hxCardBox>
    </div>
-   <!-- *** End of //Projects_Section//Projects// ********************************************** -->
+   <!-- *** End of //Programs_Section//Programs// ********************************************** -->
+
+
+   <!-- *** //Writing_Section//Writing//Writing_List// *********************************************************** -->
+   <div id="Writing_Section">
+      <hxCardBox>
+         <hxCardPage style="width:49%; min-width:2in;">
+            <!-- *** Writing_List Controls *************************************************************************** -->
+            <hxCardHeading>Writing</hxCardHeading><br>
+            <hr>
+            <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
+               <div class="hxProgressBar" id="Writing_Progress_Bar">&nbsp;
+                  <div class="inline">
+                     <button class="hxButtonNav" title="First" onclick="Writing.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                     <button class="hxButtonNav" title="Prev"  onclick="Writing.PrevPage() "><b>&#x140A;        </b></button>
+                     <button class="hxButtonNav" title="Next"  onclick="Writing.NextPage() "><b>&#x1405;        </b></button>
+                     <button class="hxButtonNav" title="Last"  onclick="Writing.LastPage() "><b>&#x1405;&#x1405;</b></button>
+                  </div>&nbsp;
+                  <div class="inline" id="id_Writing_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
+                  <div class="inline" id="id_Writing_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
+               </div>
+               <!-- *** Writing_List ************************************************************** -->
+               <hr>
+               <div id="Inject_Writing_List">Inject_Writing_List</div>
+            </div>
+         </hxCardPage>
+         <!-- *** Inject_Writing_Text ****************************************************** -->
+         <hxCardPage style="width:49%; min-width:2in;">
+            <hxCardHeading id="Inject_Writing_Heading">Inject_Writing_Heading</hxCardHeading><br>
+            <hr>
+            <div id="Inject_Writing_Text">
+               <hxCardBox>
+                  <hxCardPage style="width: 48%">
+                     <hxCardText>
+                        The <keyword>Writing</keyword> option shows various Writing Projects of James Coons.<br><br>
+                        For my writing samples, I have only shown the Table of Contents to protect my own works. 
+                     </hxCardText>
+                  </hxCardPage>
+                  <hxCardPage style="width: 48%">
+                      <img src="./Files/Splash_Writing.jpg" width=100%; height=auto;>
+                  </hxCardPage>
+               </hxCardBox>
+            </div>
+         </hxCardPage>
+      </hxCardBox>
+   </div>
+   <!-- *** End of //Writing_Section//Writing// ********************************************** -->
+
 
 
    <!-- *** //Help_Section//Help//Help_List// *********************************************************** -->
@@ -551,10 +853,10 @@
             <div class="hxNotes" style="margin: 0.1in; background-color: LightBlue;">
                <div class="hxProgressBar" id="Help_Progress_Bar">&nbsp;
                   <div class="inline">
-                     <button class="hxButtonNav" title="First" onclick="Help.FirstPage()"><b>&#x140A&#x140A</b></button>
-                     <button class="hxButtonNav" title="Prev"  onclick="Help.PrevPage() "><b>&#x140A       </b></button>
-                     <button class="hxButtonNav" title="Next"  onclick="Help.NextPage() "><b>&#x1405;       </b></button>
-                     <button class="hxButtonNav" title="Last"  onclick="Help.LastPage() "><b>&#x1405&#x1405</b></button>
+                     <button class="hxButtonNav" title="First" onclick="Help.FirstPage()"><b>&#x140A;&#x140A;</b></button>
+                     <button class="hxButtonNav" title="Prev"  onclick="Help.PrevPage() "><b>&#x140A;        </b></button>
+                     <button class="hxButtonNav" title="Next"  onclick="Help.NextPage() "><b>&#x1405;        </b></button>
+                     <button class="hxButtonNav" title="Last"  onclick="Help.LastPage() "><b>&#x1405;&#x1405;</b></button>
                   </div>&nbsp;
                   <div class="inline" id="id_Help_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
                   <div class="inline" id="id_Help_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
@@ -572,11 +874,11 @@
                <hxCardBox>
                   <hxCardPage style="width: 48%">
                      <hxCardText>
-                        Choose a Help topic from the list. 
+                        Choose a Help topic from the list.
                      </hxCardText>
                   </hxCardPage>
                   <hxCardPage style="width: 48%">
-                      <img src="./Images/Help_Splash.jpg" width=100%; height=auto;>
+                      <img src="./Files/Splash_Help.jpg" width=100%; height=auto;>
                   </hxCardPage>
                </hxCardBox>
             </div>
@@ -585,52 +887,132 @@
    </div>
    <!-- *** End of //Help_Section//Help// ********************************************** -->
 
+   <hidden>
+      <hidden> Source: https://www.w3schools.com/howto/howto_js_alert.asp </hidden>
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        This is an alert box.
+      </div>
+   </hidden>
 
-
-
-
-
-
-
-
-
-   <script>
-   function dxSearchFunction() {
-     // Declare variables
-     var input, filter, ul, li, a, i, txtValue;
-     input = document.getElementById('Enter_Custom_Companies');
-     filter = input.value.toUpperCase();
-     ul = document.getElementById("Test_Companies_List");
-     li = ul.getElementsByTagName('li');
-
-     // Loop through all list items and hide those who don't match the search query
-     for (i = 0; i < li.length; i++) {
-       a = li[i].getElementsByTagName("a")[0];
-       txtValue = a.textContent || a.innerText;
-       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-         li[i].style.display = "";
-       } else {
-         li[i].style.display = "none";
-       }
-     }
-   }
-   </script>
-
-<hidden>
-   <MsgBox_Outside>
-      <button class="MsgBox_Prompt" id="MsgBox_Prompt">THIS IS THE DEFAULT MESSAGE</button>
-      <button class="MsgBox_Button">Yes   </button>
-      <button class="MsgBox_Button">No    </button>
-      <button class="MsgBox_Button">Cancel</button>
-      <template id="MsgBox_Answer">Cancel</template>
-   </MsgBox_Outside>
-</hidden>
+   <hidden>
+      <MsgBox_Outside>
+         <button class="MsgBox_Prompt" id="MsgBox_Prompt">THIS IS THE DEFAULT MESSAGE</button>
+         <button class="MsgBox_Button">Yes   </button>
+         <button class="MsgBox_Button">No    </button>
+         <button class="MsgBox_Button">Cancel</button>
+         <template id="MsgBox_Answer">Cancel</template>
+      </MsgBox_Outside>
+   </hidden>
 
    <div style="height: 0.04in; background-color: transparent;"></div>
    <hxCopyrightText>
       <center>Copyright &copy; 2020 by James Coons</center>
       <br><br>
    </hxCopyrightText>
+   <hidden>
+      <div id="DownloadFile">Download File 1</div>
+   </hidden>
+   <hidden>
+      <!-- The expanding grid (hidden by default) -->
+      <hidden> Closable button inside the image </hidden>
+      <div id="b1" class="containerTab" style="background:green">
+        <!-- If you want the ability to close the container, add a close button -->
+        <span onclick="this.parentElement.style.display='none'"
+         title="Close" class="closebtn" style="float:right; border:0.1in Black;">x&nbsp;</span>
+        <h2>Box 1</h2>
+        <p>Lorem ipsum..</p>
+      </div>
+   </hidden>
+
+<hidden>
+<label for="cars">Choose a car:</label>
+<select id="cars" name="cars" size="10" width="3in" style="width:3in;">
+  <option>Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+  <option>Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+  <option>Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+  <option>Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+  <option>Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+  <option>Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select>
+</hidden>
+
+<hidden>
+// To prevent errors
+<div class="inline" id="id_Companies_Pages" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(pages)</div>
+<div class="inline" id="id_Companies_Items" style="font-weight: bold; color: White; font-size:0.17in; padding: 0in">(items)</div>
+</hidden>
+
+<hidden>
+   <div>
+   <dialog id="myFirstDialog" style="width:50%;background-color:#F4FFEF;border:1px dotted black;">
+   <p><q>I am so clever that sometimes I don't understand a single word of what I am saying.
+   </q> - <cite>Oscar Wilde</cite></p>
+   <button id="hide">Close</button>
+   </dialog>
+   <button id="show">Show Dialog</button>
+   </div>
+
+   <!-- JavaScript to provide the "Show/Close" functionality -->
+   <script type="text/JavaScript">
+   (function() {
+       var dialog = document.getElementById('myFirstDialog');
+       document.getElementById('show').onclick = function() {
+           dialog.show();
+       };
+       document.getElementById('hide').onclick = function() {
+           dialog.close();
+       };
+   })();
+   </script>
+
+   <form>
+     <label for="myfile">Select a file:</label>
+     <input type="file" id="myfile" name="myfile">
+   </form>
+
+   <form>
+     <label for="ListSize">List Size (between 10 and 50):</label>
+     <input type="range" id="ListSize" name="ListSize" min="10" max="50">
+   </form>
+
+   <form>
+     <label for="files">Select files (multiple):</label>
+     <input type="file" id="files" name="files" multiple>
+   </form>
+
+   <form>
+     <input list="browsers">
+     <datalist id="browsers">
+       <option value="Internet Explorer">
+       <option value="Firefox">
+       <option value="Chrome">
+       <option value="Opera">
+       <option value="Safari">
+     </datalist>
+   </form>
+
+transform: scale(0.9) rotate(-3deg) translateY(30px);
+
+</hidden>
 
 </body>
 
